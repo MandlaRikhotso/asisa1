@@ -1,0 +1,42 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+<app-tabs [insuredPersondetails]="checkoutForm.value" [formStatus]="formActive"  *ngIf="tabInformation"></app-tabs>
+<form novalidate [formGroup]="checkoutForm" *ngIf="tabInformation">
+  <app-add-insured-person *ngIf="tabInformation.tabs[0].show" [hidden]="!tabInformation.tabs[0].tabContent" (formReady)="formInitialized('personinfo', $event)"></app-add-insured-person>
+  <app-add-person-impairmaint [insuredPersondetails]="checkoutForm.value" *ngIf="tabInformation.tabs[1].show" [hidden]="!tabInformation.tabs[1].tabContent"
+    (formReady)="formInitialized('impairments', $event)"></app-add-person-impairmaint>
+  <app-add-person-claim  [insuredPersondetails]="checkoutForm.value" *ngIf="tabInformation.tabs[2].show" [hidden]="!tabInformation.tabs[2].tabContent" (formReady)="formInitialized('claims', $event)"></app-add-person-claim>
+  <app-add-note [insuredPersondetails]="checkoutForm.value" [hidden]="!tabInformation.tabs[3].tabContent" (formReady)="formInitialized('note', $event)"></app-add-note>
+  <app-add-scratchpad [insuredPersondetails]="checkoutForm.value" [hidden]="!tabInformation.tabs[4].tabContent"
+    (formReady)="formInitialized('scratch', $event)"></app-add-scratchpad>
+
+</form>
+<!-- Modal Start-->
+<div id="myModal1" class="modal fade" role="dialog">
+  <form [formGroup]="confirmationCancelForm" (ngSubmit)="confirmCancel()">
+    <div class="modal-dialog modal-dialog-centered ">
+      <!-- Modal content-->
+      <div class="modal-content custom-modal">
+        <div class="modal-header">
+          <a><i class="fa fa-close" data-dismiss="modal" #closeBtn></i></a>
+          <h4 class="modal-title"><span class="glyphicon glyphicon-trash custom-text-danger"></span>
+            <span class="m-15">Are you sure you want to cancel?</span>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+          </div>
+        </div>
+        <div class="modal-footer custom-background-color">
+          <div class="row">
+            <div class="col-sm-6">
+              <button type="submit" class="btn btn-default btn-block btn-cancel">SUBMIT</button>
+            </div>
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-default btn-block btn-cancel" data-dismiss="modal">CANCEL</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

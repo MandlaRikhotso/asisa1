@@ -1,0 +1,15 @@
+.notes_div{
+    width:33% !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    white-space: nowrap;
+}
+.row-header-div {
+    font-weight: bold !important;
+    color: #7b7a7a !important;
+  }
+  
+  .row-content-div {
+    font-size: 11px !important;
+    color: #7b7a7a !important;
+  }

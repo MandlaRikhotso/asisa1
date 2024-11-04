@@ -1,0 +1,47 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+<div class="jumbotron mt-45">
+  <div class="container-fluid custom-margin-top">
+    <div class="jumbotron-section panel-box">
+      <ul class="nav nav-pills nav-justified custom-ul-border-bottom" *ngIf="tabInformation">
+        <!-- <div class="row">
+          <div class="col-sm-8 col-md-8"> -->
+        <ng-container *ngFor="let tabsInfo of tabInformation.tabs let i = index">
+          <!-- <div class="col-sm-3 col-md-3"  *ngIf="tabsInfo.show"> -->
+          <li class="large-text" *ngIf="tabsInfo.show">
+            <a (click)="tabsInfo.active && showTabs(i)" [class]="tabsInfo.borderBottomClass ? styleClass:''"
+              [class.disabled]="!tabsInfo.active">{{tabsInfo.tabName}}</a>
+          </li>
+
+          <!-- </div> -->
+        </ng-container>
+        <ng-container *ngFor="let tabsInfo of tabInformation.tabs let i = index">
+          <!-- <div class="col-sm-3 col-md-3"  *ngIf="tabsInfo.show"> -->
+          <li class="large-text" *ngIf="tabsInfo.show === false">
+            <a class="hidden-a"></a>
+          </li>
+
+          <!-- </div> -->
+        </ng-container>
+        <!-- </div> -->
+
+        <!-- <div class="col-sm-4 col-md-4"> -->
+        <!-- <div class="col-sm-6 col-md-6"> -->
+        <li>
+          <button type="button" class="btn btn-default btn-block btn-dark"
+            [disabled]="!tabInformation.submitActive || !tabInformation.noteActive || !tabInformation.scratchpadtActive" (click)="submit()">Save</button>
+        </li>
+        <!-- </div> -->
+        <!-- <div class="col-sm-6 col-md-6"> -->
+        <li>
+          <button type="button" class="btn btn-default btn-block btn-cancel" data-toggle="modal"
+            data-target="#myModal1">Cancel</button>
+        </li>
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- </div> -->
+      </ul>
+      <hr>
+      <app-person-information></app-person-information>
+    </div>
+  </div>
+</div>

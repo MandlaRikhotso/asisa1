@@ -1,0 +1,182 @@
+[
+    {
+        "claimCategoryId": "1",
+        "description": "EARLY CLM POLICY IN FORCE < 1 YRS FROM DOE, ETC",
+        "claimCode": "4303",
+        "claimType": "DEATH"
+    },
+    {
+        "claimCategoryId": "2",
+        "description": "EARLY INDIV CLM WITH TOTAL DTH VALUE PER POLICY > R500 000",
+        "claimCode": "4304",
+        "claimType": "DEATH"
+    },
+    {
+        "claimCategoryId": "3",
+        "description": "EARLY GRP CLM WITH A TOTAL DTH VAL PER POLICY OF > R500 000",
+        "claimCode": "4305",
+        "claimType": "DEATH"
+    },
+    {
+        "claimCategoryId": "4",
+        "description": "OVERSEAS CLAIM",
+        "claimCode": "4306",
+        "claimType": "DEATH"
+    },
+    {
+        "claimCategoryId": "5",
+        "description": "CLAIMS UNDER SPECIAL INVESTIGATION",
+        "claimCode": "4307",
+        "claimType": "DEATH"
+    },
+    {
+        "claimCategoryId": "6",
+        "description": "PROVEN FRAUDULENT CLAIM",
+        "claimCode": "4308",
+        "claimType": "DEATH"
+    },
+    {
+        "claimCategoryId": "7",
+        "description": "REPUDIATION",
+        "claimCode": "4309",
+        "claimType": "DEATH"
+    },
+    {
+        "claimCategoryId": "8",
+        "description": "AIDS/HIV+",
+        "claimCode": "4310",
+        "claimType": "DEATH"
+    },
+    {
+        "claimCategoryId": "9",
+        "description": "BENE NOT SPOUSE, CHILD, FAMILY REL OF PROPOSER, L/ASSURED OR POLICY HOLDER",
+        "claimCode": "4311",
+        "claimType": "DEATH"
+    },
+    {
+        "claimCategoryId": "10",
+        "description": "BENEFICIARY IS THE INTERMEDIARY",
+        "claimCode": "4312",
+        "claimType": "DEATH"
+    },
+    {
+        "claimCategoryId": "11",
+        "description": "EARLY INDIV CLM WHERE POLICY IN FORCE FOR < 2 YRS IRRESP OF INSURED AMT",
+        "claimCode": "4313",
+        "claimType": "DISABILITY"
+    },
+    {
+        "claimCategoryId": "12",
+        "description": "EARLY GRP CLM WHERE POLICY IN FORCE FOR < 2 YRS IRRESP OF INSURED AMT",
+        "claimCode": "4314",
+        "claimType": "DISABILITY"
+    },
+    {
+        "claimCategoryId": "13",
+        "description": "AIDS/HIV+",
+        "claimCode": "4315",
+        "claimType": "DISABILITY"
+    },
+    {
+        "claimCategoryId": "14",
+        "description": "OVERSEAS CLAIM",
+        "claimCode": "4316",
+        "claimType": "DISABILITY"
+    },
+    {
+        "claimCategoryId": "15",
+        "description": "CLAIMS UNDER SPECIAL INVESTIGATION",
+        "claimCode": "4317",
+        "claimType": "DISABILITY"
+    },
+    {
+        "claimCategoryId": "16",
+        "description": "PROVEN FRAUDULENT CLAIM",
+        "claimCode": "4318",
+        "claimType": "DISABILITY"
+    },
+    {
+        "claimCategoryId": "17",
+        "description": "PHI WHERE BENEFIT PAID IS > R20 000 PM",
+        "claimCode": "4319",
+        "claimType": "DISABILITY"
+    },
+    {
+        "claimCategoryId": "18",
+        "description": "PHI WHERE BENEFIT PAYMENT STOPPED NOT DUE TO DTH OR EX",
+        "claimCode": "4320",
+        "claimType": "DISABILITY"
+    },
+    {
+        "claimCategoryId": "19",
+        "description": "ALL CLAIMS OTHER THAN AIDS RELATED",
+        "claimCode": "4321",
+        "claimType": "DISEASE"
+    },
+    {
+        "claimCategoryId": "20",
+        "description": "AIDS/HIV+",
+        "claimCode": "4322",
+        "claimType": "DISEASE"
+    },
+    {
+        "claimCategoryId": "21",
+        "description": "OVERSEAS CLAIM",
+        "claimCode": "4323",
+        "claimType": "DISEASE"
+    },
+    {
+        "claimCategoryId": "22",
+        "description": "CLAIMS UNDER SPECIAL INVESTIGATION",
+        "claimCode": "4324",
+        "claimType": "DISEASE"
+    },
+    {
+        "claimCategoryId": "23",
+        "description": "PROVEN FRAUDULENT CLAIM",
+        "claimCode": "4325",
+        "claimType": "DISEASE"
+    },
+    {
+        "claimCategoryId": "24",
+        "description": "EARLY INDIV CLMS WHERE POLICY IN FORCE FOR <3 YRS FROM DOE,ETC",
+        "claimCode": "4351",
+        "claimType": "MEDICAL"
+    },
+    {
+        "claimCategoryId": "25",
+        "description": "INDIV CLM WITH TOTAL BENEFIT PER POLICY OF > R50 000",
+        "claimCode": "4352",
+        "claimType": "MEDICAL"
+    },
+    {
+        "claimCategoryId": "26",
+        "description": "WHEN HOSPITALISATION EXCEEDS 10 DAYS PER CLAIM",
+        "claimCode": "4353",
+        "claimType": "MEDICAL"
+    },
+    {
+        "claimCategoryId": "27",
+        "description": "AIDS/HIV+",
+        "claimCode": "4354",
+        "claimType": "MEDICAL"
+    },
+    {
+        "claimCategoryId": "28",
+        "description": "OVERSEAS CLAIM",
+        "claimCode": "4355",
+        "claimType": "MEDICAL"
+    },
+    {
+        "claimCategoryId": "29",
+        "description": "CLAIMS UNDER SPECIAL INVESTIGATION",
+        "claimCode": "4356",
+        "claimType": "MEDICAL"
+    },
+    {
+        "claimCategoryId": "30",
+        "description": "PROVEN FRAUDULENT CLAIM",
+        "claimCode": "4357",
+        "claimType": "MEDICAL"
+    }
+]

@@ -1,0 +1,100 @@
+[
+    {
+        "policyNumber": "18508738",
+        "policyBenefit": [
+            {
+                "id": 16,
+                "description": "DREAD DISEASE"
+            },
+            {
+                "id": 12,
+                "description": "DISABILITY INCOME REPLACEMENT"
+            }
+        ],
+        "impairments": [
+            {
+                "impairment": [
+                    {
+                        "impairmentId": "101",
+                        "code": "1",
+                        "description": "Abnormal Brain Scan"
+                    }
+                ],
+                "timeSignal": [
+                    {
+                        "id": "1",
+                        "value": "2000"
+                    }
+                ],
+                "reading": "11",
+                "reading1": "22",
+                "specialInvestigate": [
+                    {
+                        "spinId": "W0",
+                        "description": "Medical Report"
+                    }
+                ],
+                "symbol": [
+                    {
+                        "symbolId": "Non-Medical",
+                        "code": "N"
+                    },
+                    {
+                        "symbolId": "Questionable",
+                        "code": "Q"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "policyNumber": "18508739",
+        "policyBenefit": [
+            {
+                "id": 1,
+                "description": "RISK/DEATH BENEFIT"
+            },
+            {
+                "id": 12,
+                "description": "DISABILITY INCOME REPLACEMENT"
+            }
+        ],
+        "impairments": [
+            {
+                "impairment": [
+                    {
+                        "impairmentId": "102",
+                        "code": "1",
+                        "description": "Abnormal Brain Scan"
+                    }
+                ],
+                "timeSignal": [
+                    {
+                        "id": "1",
+                        "value": "2000"
+                    }
+                ],
+                "reading": "11",
+                "reading1": "22",
+                "specialInvestigate": [
+                    {
+                        "spinId": "W0",
+                        "description": "Medical Report"
+                    }
+                ],
+                "symbol": [
+                    {
+                        "symbolId": "1",
+                        "code": "X",
+                        "description": "X"
+                    },
+                    {
+                        "symbolId": "2",
+                        "code": "Y",
+                        "description": "Y"
+                    }
+                ]
+            }
+        ]
+    }
+]

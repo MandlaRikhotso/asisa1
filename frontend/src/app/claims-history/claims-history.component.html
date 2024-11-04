@@ -1,0 +1,114 @@
+<!-- Claim -->
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+<div class="container-fluid">
+  <div class="jumbotron-section panel-box">
+    <span>
+      <span class="section-header">Claims<span class="section-subheader" *ngIf="!boolStatus">History</span></span>
+      <span class="count-item mr-20" *ngIf="boolStatus">{{claims.length}}</span>
+      <a (click)="addClaim()" *ngIf="boolStatus && boolAddUpdtClm">
+        <span class="add-button">
+          <span class="glyphicon glyphicon-plus"></span> ADD
+        </span>
+      </a>
+    </span>
+    <span class="arrow-collapse pull-right" (click)="show = !show" *ngIf="boolStatus">
+      <img *ngIf="show" src="assets/images/arrow-down.png" class="img-fluid" alt="Arrow Down">
+      <img *ngIf="!show" src="assets/images/arrow-right.png" class="img-fluid" alt="Arrow Down">
+    </span>
+
+    <div class="row panel-group custom-panel" *ngIf="show">
+      <div class="panel panel-default custom-panel-auth">
+        <div class="panel-heading panel-header-section" *ngIf="claims.length">
+          <div class="row">
+            <div class="col-sm-2" (click)="setOrder('claimTypeCode')">Claim Type
+              <span *ngIf="order === 'claimTypeCode'">
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </span>
+            </div>
+
+
+            <div class="col-sm-1" (click)="setOrder('dateCreated')">Date Created
+              <span *ngIf="order === 'dateCreated'">
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </span>
+            </div>
+
+            <div class="col-sm-1">Date of Event</div>
+            <div class="col-sm-1">Cause of Event</div>
+            <div class="col-sm-1">Place of Death</div>
+            <div class="col-sm-2">Death Certificate#</div>
+            <div class="col-sm-1">DHA1663</div>
+            <div class="col-sm-2">Policy Number</div>
+            <div class="col-sm-1" *ngIf="boolStatus">
+            </div>
+          </div>
+        </div>
+        <div class="panel-body panel-body-section custom-panel-border"
+          *ngFor="let claim of claims | orderBy: order:reverse :'case-insensitive':customComparator">
+
+          <div class="row">
+            <div class="col-sm-2">{{claim.claimType}}</div>
+            <div class="col-sm-1"*ngIf="claim.dateCreated">{{claim.dateCreated| date: 'dd/MM/yyyy'}}</div>
+            <div class="col-sm-1">{{(claim.eventDate ==='Invalid date' || null) ?'-' :claim.eventDate}}</div>
+            <div class="col-sm-1">{{claim.eventCause}}</div>
+            <div class="col-sm-1">{{claim.eventDeathPlace}}</div>
+            <div class="col-sm-2">{{claim.eventDeathCertificateNo}}</div>
+            <div class="col-sm-1">{{claim.dha1663Number }}</div>
+            <div class="col-sm-2">{{claim.policyNumber}}</div>
+            <div class="col-sm-1" *ngIf="boolStatus && boolAddUpdtClm">
+              <div class="row">
+                <div class="col-sm-6" *ngIf="claim.notificationStatus != 'APPROVAL_PENDING'">
+                  <span class="glyphicon glyphicon-pencil"
+                    (click)="addClaim(claim.notifiableClaimID, claim.notificationID)"></span>
+                </div>
+                <div class="col-sm-6" *ngIf="claim.notificationStatus != 'APPROVAL_PENDING'">
+                  <span class="glyphicon glyphicon-trash"
+                    (click)="deleteClaim(claim.notifiableClaimID, claim.notificationID)" data-toggle="modal"
+                    data-target="#claimModal"></span>
+                </div>
+                <tooltip-content #myTooltip>
+                  <span>{{claim.notificationStatus}} </span>
+                </tooltip-content>
+                <div class="approve_span" *ngIf="claim.notificationStatus === 'APPROVAL_PENDING'" [tooltip]="myTooltip"
+                  [tooltipDisabled]="false" [tooltipAnimation]="true" tooltipPlacement="top">
+                  {{claim.notificationStatus}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-2 row-header-div">Claim Category</div>
+            <div class="col-sm-4 row-header-div">Claim Reason</div>
+            <div class="col-sm-2 row-header-div">Claim Status</div>
+            <div class="col-sm-1 row-header-div"></div>
+            <div class="col-sm-2 row-header-div">Life Office</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2 row-content-div">
+              {{claim.claimCategory[0]?claim.claimCategory[0].code:''}}-{{claim.claimCategory[0]?claim.claimCategory[0].description:''}}
+            </div>
+            <div class="col-sm-4 row-content-div">
+              {{claim.claimReason[0]?claim.claimReason[0].code:''}}-{{claim.claimReason[0]?claim.claimReason[0].description:''}}
+            </div>
+            <div class="col-sm-2 row-content-div">{{claim.claimStatus ? claim.claimStatus :'-'}}</div>
+            <div class="col-sm-1 row-content-div"></div>
+            <div class="col-sm-2 row-content-div">{{claim.notificationSource}}</div>
+          </div>
+        </div>
+        <div class="panel-body panel-body-section custom-panel-border" *ngIf="!claims.length">
+          <div class="row large-text p-30">
+            <p>Claims are not available for the selected person</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Claim End-->
+<br>
+
+<app-confirm-modal-claim (claimMsgEvent)="claimDeleteSuccess($event)"></app-confirm-modal-claim>

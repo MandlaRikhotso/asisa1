@@ -1,0 +1,29 @@
+/*a.disabled {
+    color: gray;
+    cursor: not-allowed;
+}*/
+
+li.large-text {
+    cursor:pointer;
+    /* width: max-content !important; */
+}
+/*.styleFor{
+color: blue;
+}*/
+.custom-li-border-bottom {
+    border-bottom: 4px solid #50b848;
+}
+.custom-li-color{
+    color: #50b848;
+}
+/*li.disabled {
+color: grey;
+cursor: not-allowed;
+}*/
+li a.disabled {
+color: grey;
+cursor: not-allowed;
+}
+a.hidden-a {
+    background-color:#ffffff !important;
+}

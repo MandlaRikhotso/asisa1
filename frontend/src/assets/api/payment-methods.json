@@ -1,0 +1,14 @@
+[
+    {
+        "paymentMethodId": "10",
+        "description": "EFT"
+    },
+    {
+        "paymentMethodId": "26",
+        "description": "CHEQUE"
+    },
+    {
+        "paymentMethodId": "2147483647",
+        "description": "OTHER"
+    }
+]

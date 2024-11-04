@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "description": "RISK/DEATH BENEFIT"
+  },
+  {
+    "id": 12,
+    "description": "DISABILITY INCOME REPLACEMENT"
+  },
+  {
+    "id": 16,
+    "description": "DREAD DISEASE"
+  },
+  {
+    "id": 19,
+    "description": "HOSPITAL/MEDICAL"
+  },
+  {
+    "id": 35,
+    "description": "FUNERAL POLICY"
+  },
+  {
+    "id": 304,
+    "description": "LUMP SUM DISABILITY"
+  },
+  {
+    "id": 305,
+    "description": "ACCIDENT BENEFITS"
+  },
+  {
+    "id": 402,
+    "description": "IMPAIRMENT"
+  },
+  {
+    "id": 411,
+    "description": "RETRENCHMENT"
+  },
+  {
+    "id": 2147483647,
+    "description": "OTHER"
+  }
+]

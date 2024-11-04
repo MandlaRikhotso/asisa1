@@ -1,0 +1,44 @@
+{
+    "data": {
+        "new": {
+            "notificationID": 5,
+            "policyNumber": "12",
+            "bi1663Number": "7892",
+            "policyBenefit": "RISK/DEATH BENEFIT",
+            "createdDate": "2019-01-22",
+            "eventDate": "2019-01-21",
+            "placeOfDeath": "Pune",
+            "deathCertificateNumber": "576768",
+            "causeOfEvent": "7",
+            "transType": "UPDATE"
+        },
+        "old": {
+            "notificationID": 5,
+            "policyNumber": "12",
+            "bi1663Number": "7890",
+            "policyBenefit": "RISK/DEATH BENEFIT",
+            "createdDate": "2019-01-22",
+            "eventDate": "2019-01-16",
+            "placeOfDeath": "Pune",
+            "deathCertificateNumber": "576768",
+            "causeOfEvent": "7"
+        },
+        "insuredPerson": {
+            "surname": "Amlani",
+            "dateOfBirth": "2019-01-14",
+            "gender": "M",
+            "identityNumber": "12345",
+            "identityTypeName": "SA ID",
+            "identityTypeCode": "1",
+            "title": "Mr",
+            "givenName1": "aaa",
+            "givenName2": "b",
+            "givenName3": "c",
+            "addressLine1": "aa",
+            "addressLine2": "bb",
+            "addressLine3": "cc",
+            "postalCode": 1
+        }
+    },
+    "status": "SUCCESS"
+}

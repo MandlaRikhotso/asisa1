@@ -1,0 +1,131 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+<div class="jumbotron mt-45">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="section-header-main">
+          <a routerLink="/authorise">
+            <img src="assets/images/back-arrow.png" class="img-fluid" alt="Back Arrow">
+          </a>
+          Authorise Impairment
+        </div>
+      </div>
+      <div class="col-sm-6 text-right">
+        <div>
+          <button type="button" class="btn btn-default btn-cancel" (click)="capAuthoriseImpairment()"><span class="glyphicon glyphicon-download-alt"></span>
+            Download Snapshot</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid jumbotron-section" id="authoriseImpairment">
+  <app-person-information></app-person-information>
+  <br>
+  <app-alert></app-alert>
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="section-header">
+        Impairments
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <span *ngIf="(impairments)?impairments.transType == 'DELETE':''" class="im-delete-box"></span>
+      <span *ngIf="(impairments)?impairments.transType == 'DELETE':''">Deleted</span>
+      <span *ngIf="(impairments)?impairments.transType == 'UPDATE':''" class="cm-updated-box"></span>
+      <span *ngIf="(impairments)?impairments.transType == 'UPDATE':''" class="cm-updated-text">Updated</span>
+      <span *ngIf="(impairments)?impairments.transType == 'UPDATE':''" class="cm-original-box"></span>
+      <span *ngIf="(impairments)?impairments.transType == 'UPDATE':''">Original</span>
+    </div>
+  </div>
+
+  <div class="enquiry-section panel-box">
+
+    <div class="row p-10">
+      <div class="col-sm-2">
+        <label class="custom-label">Captured On</label> - <span class="large-text">{{impairments.new?(impairments.new.createdDate | date: 'dd/MM/yyyy'):''}}</span>
+      </div>
+      <div class="col-sm-2">
+        <label class="custom-label">Captured by</label> - <span class="large-text">{{impairments.new?impairments.new.createdBy:''}}</span>
+      </div>
+      <div class="col-sm-4 notes_div" *ngIf="strNote[0]" [tooltip]="myTooltipNote" [tooltipDisabled]="false" [tooltipAnimation]="true"
+      tooltipPlacement="top" >
+          <label class="large-text">Notes </label> - <span class="" >{{strNote[0]}}</span>
+        </div>
+      <tooltip-content #myTooltipNote >
+        <div class="tooltip-content-div">{{strNote[0]}}</div>
+      </tooltip-content>
+        <div class="col-sm-4 notes_div"  *ngIf="strNote[1]" [tooltip]="myTooltipScra" [tooltipDisabled]="false" [tooltipAnimation]="true"
+        tooltipPlacement="top">
+            <label class="large-text">Scratchpad</label> - <span class="" >{{strNote[1]}}</span>
+        </div>
+        <tooltip-content #myTooltipScra >
+            <div class="tooltip-content-div">{{strNote[1]}}</div>
+          </tooltip-content>
+    </div>
+    <div class="row p-10">
+      <div class="col-sm-6">
+        <span class="large-text">Reason Mentioned</span> - <span>{{impairments.new?impairments.new.reasonForEdit:''}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="enquiry-section panel-box">
+    <div class="panel-group custom-panel">
+      <div class="panel panel-default custom-panel-auth">
+        <div class="panel-heading panel-header-section">
+          <div class="row">
+            <div class="col-sm-2">Impairment</div>
+            <div class="col-sm-1">Time Signals</div>
+            <div class="col-sm-1">Readings</div>
+            <div class="col-sm-1">SPIN</div>
+            <div class="col-sm-1">Symbol</div>
+            <div class="col-sm-1">Date Created</div>
+            <div class="col-sm-2">Life Office</div>
+            <div class="col-sm-1">Policy Number</div>
+            <div class="col-sm-2">Policy Benefit</div>
+          </div>
+        </div>
+
+        <div class="panel-body panel-body-section">
+          <div class="row" *ngIf="impairments.new" [ngClass]="impairments.transType == 'UPDATE' ? 'cm-selected-row' : 'im-selected-row'">
+            <div class="col-sm-2"><span [ngClass]="impairments.new.impairment.code != impairments.old.impairment.code ? 'cm-updated-text' : ''">{{impairments.new?impairments.new.impairment.code:''}}-{{impairments.new?impairments.new.impairment.description:''}}</span></div>
+            <div class="col-sm-1"><span [ngClass]="impairmentData.newtimeSignal != impairmentData.oldtimeSignal ? 'cm-updated-text' : ''">{{impairments.new?impairments.new.timeSignal:''}}</span></div>
+            <div class="col-sm-1"><span [ngClass]="impairmentData.newReadings != impairmentData.oldReadings ? 'cm-updated-text' : ''">{{(impairmentData.newReadings === null || '')?'-':impairmentData.newReadings}}</span></div>
+            <div class="col-sm-1"><span [ngClass]="strSplInvestSymbol[0] != strSplInvestSymbol[1] ? 'cm-updated-text' : ''">{{(strSplInvestSymbol[0] === '')?'-':strSplInvestSymbol[0]}}</span></div>
+            <div class="col-sm-1"><span [ngClass]="strSplInvestSymbol[2] != strSplInvestSymbol[2] ? 'cm-updated-text' : ''">{{(strSplInvestSymbol[2] === '')?'-':strSplInvestSymbol[2]}}</span></div>
+            <div class="col-sm-1"><span>{{impairments.new? (impairments.new.createdDate | date: 'dd/MM/yyyy'):'-'}}</span></div>
+            <div class="col-sm-2"><span >{{impairments.new?impairments.new.lifeOffice:'-'}}</span></div>
+            <div class="col-sm-1"><span >{{impairments.new?impairments.new.policyNumber:''}}</span></div>
+            <div class="col-sm-2"><span [ngClass]="impairments.new.policyBenefit.description != impairments.old.policyBenefit.description ? 'cm-updated-text' : ''">{{impairments.new?impairments.new.policyBenefit.description:''}}</span></div>
+          </div>
+          <div class="row cm-original-row" *ngIf="(impairments)?impairments.transType == 'UPDATE':''">
+            <div class="col-sm-2"><span>{{impairments.old.impairment.code}}-{{impairments.old.impairment.description}}</span></div>
+            <div class="col-sm-1"><span>{{impairments.old.timeSignal}}</span></div>
+            <div class="col-sm-1"><span>{{(impairmentData.oldReadings === null || '')?'-':impairmentData.oldReadings}}</span></div>
+            <div class="col-sm-1"><span>{{(strSplInvestSymbol[1] === '')?'-':strSplInvestSymbol[1]}}</span></div>
+            <div class="col-sm-1"><span>{{(strSplInvestSymbol[3] === '')?'-':strSplInvestSymbol[3]}}</span></div>
+            <div class="col-sm-1"><span>{{impairments.old.createdDate?(impairments.old.createdDate | date: 'dd/MM/yyyy'):'-'}}</span></div>
+            <div class="col-sm-2"><span>{{impairments.old.lifeOffice?impairments.old.lifeOffice:'-'}}</span></div>
+            <div class="col-sm-1"><span>{{impairments.old.policyNumber}}</span></div>
+            <div class="col-sm-2"><span>{{impairments.old.policyBenefit.description}}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-2" *ngIf="boolAuthorizeImp ">
+    <button type="button" class="btn btn-default btn-block btn-cancel" (click)="onApproveImpairmentSubmit(impairments)">Approve</button>
+  </div>
+  <div class="col-sm-2" *ngIf="boolAuthorizeImp ">
+    <button type="button" class="btn btn-default btn-block btn-reject" data-toggle="modal" data-target="#impRejectModal" (click)="getReferenceData(impairments)">Reject</button>
+  </div>
+</div>
+<app-confirm-modal-impairment-reject [referenceData]="referImpairmentData"></app-confirm-modal-impairment-reject>

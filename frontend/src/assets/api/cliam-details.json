@@ -1,0 +1,146 @@
+[
+    {
+        "policyNumber": "18508738",
+        "claimType": [
+            {
+                "policyTypeId": "1",
+                "description": "Risk/Death Benifit"
+            },
+            {
+                "policyTypeId": "12",
+                "description": "Disability Income Replacement"
+            }
+        ],
+        "categoryId": [
+            {
+                "claimCategoryId": "1",
+                "description": "EARLY CLM POLICY IN FORCE < 1 YRS FROM DOE, ETC",
+                "claimCode": "4303",
+                "claimType": "DEATH"
+            },
+            {
+                "claimCategoryId": "2",
+                "description": "EARLY INDIV CLM WITH TOTAL DTH VALUE PER POLICY > R500 000",
+                "claimCode": "4304",
+                "claimType": "DEATH"
+            }
+        ],
+        "dateOfEvent": "13/12/2018",
+        "causeOfEvent": [
+            {
+                "id": "1",
+                "name": "Accident at Work"
+            }
+        ],
+        "placeOfDeath": "aaaaaa",
+        "dateCertificateNumber": "111111111122",
+        "b11663Number": "22222222222",
+        "claimReason": [
+            {
+                "icdCodeId": "AD01",
+                "description": "WEIGHT: OVERWEIGHT",
+                "groupId": "OLD",
+                "readingReq": "",
+                "rule": "",
+                "evalCategory": "",
+                "evaluation": "",
+                "rule1": ""
+            },
+            {
+                "icdCodeId": "AD12",
+                "description": "KYPHOSIS",
+                "groupId": "OLD",
+                "readingReq": "",
+                "rule": "",
+                "evalCategory": "",
+                "evaluation": "",
+                "rule1": ""
+            }
+        ],
+        "claimStatus": [
+            {
+                "claimStatusId": "10",
+                "description": "REPUDIATED WITH EX GRATIA"
+            }
+        ],
+        "payMethod": [
+            {
+                "paymentMethodId": "26",
+                "description": "CHEQUE"
+            }
+        ],
+        "editReason": ""
+    },
+    {
+        "policyNumber": "18508739",
+        "claimType": [
+            {
+                "policyTypeId": "1",
+                "description": "Risk/Death Benifit"
+            },
+            {
+                "policyTypeId": "12",
+                "description": "Disability Income Replacement"
+            }
+        ],
+        "categoryId": [
+            {
+                "claimCategoryId": "1",
+                "description": "EARLY CLM POLICY IN FORCE < 1 YRS FROM DOE, ETC",
+                "claimCode": "4303",
+                "claimType": "DEATH"
+            },
+            {
+                "claimCategoryId": "2",
+                "description": "EARLY INDIV CLM WITH TOTAL DTH VALUE PER POLICY > R500 000",
+                "claimCode": "4304",
+                "claimType": "DEATH"
+            }
+        ],
+        "dateOfEvent": "13/12/2018",
+        "causeOfEvent": [
+            {
+                "id": "1",
+                "name": "Accident at Work"
+            }
+        ],
+        "placeOfDeath": "aaaa",
+        "dateCertificateNumber": "11111",
+        "b11663Number": "222222222",
+        "claimReason": [
+            {
+                "icdCodeId": "AD01",
+                "description": "WEIGHT: OVERWEIGHT",
+                "groupId": "OLD",
+                "readingReq": "",
+                "rule": "",
+                "evalCategory": "",
+                "evaluation": "",
+                "rule1": ""
+            },
+            {
+                "icdCodeId": "AD12",
+                "description": "KYPHOSIS",
+                "groupId": "OLD",
+                "readingReq": "",
+                "rule": "",
+                "evalCategory": "",
+                "evaluation": "",
+                "rule1": ""
+            }
+        ],
+        "claimStatus": [
+            {
+                "claimStatusId": "10",
+                "description": "REPUDIATED WITH EX GRATIA"
+            }
+        ],
+        "payMethod": [
+            {
+                "paymentMethodId": "10",
+                "description": "EFT"
+            }
+        ],
+        "editReason": ""
+    }
+]

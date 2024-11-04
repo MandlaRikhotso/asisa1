@@ -1,0 +1,46 @@
+{
+    "data": {
+        "new": {
+            "notifiableImpairmentID": "5",
+            "impairmentCode": "AD01",
+            "impairmentCodeDesc": "WEIGHT: OVERWEIGHT",
+            "timeSignal": "2020",
+            "readings": "777",
+            "specialInvestigationCode": "1",
+            "symbolCode": "P",
+            "createdDate": "2019-01-22 12:03:25.593",
+            "policyNumber": "12345",
+            "policyBenefit": "Dread Disease",
+            "transType": "UPDATE"
+        },
+        "old": {
+            "notifiableImpairmentID": "5",
+            "impairmentCode": "AD01",
+            "impairmentCodeDesc": "WEIGHT: OVERWEIGHT",
+            "timeSignal": "2019",
+            "readings": "2018",
+            "specialInvestigationCode": "1",
+            "symbolCode": "P",
+            "createdDate": "2019-01-22 12:03:11.971",
+            "policyNumber": "12345",
+            "policyBenefit": "Dread Disease"
+        },
+        "insuredPerson": {
+            "surname": "Amlani",
+            "dateOfBirth": "2019-01-14",
+            "gender": "M",
+            "identityNumber": "12345",
+            "identityTypeName": "SA ID",
+            "identityTypeCode": "1",
+            "title": "Mr",
+            "givenName1": "aaa",
+            "givenName2": "b",
+            "givenName3": "c",
+            "addressLine1": "aa",
+            "addressLine2": "bb",
+            "addressLine3": "cc",
+            "postalCode": 1
+        }
+    },
+    "status": "OK"
+}

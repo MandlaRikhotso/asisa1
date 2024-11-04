@@ -1,0 +1,56 @@
+<nav class="navbar navbar-inverse custom-navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <a  (click)="redirectTo();">
+          <li class="pull-left">
+            <img src="assets/images/OM-logo.png" class="img-fluid custom-logo" alt="Old Mutual Logo">
+          </li>
+        </a>
+        <li class="p-29">
+          <span class="custom-heading-bold">Old Mutual Life </span>
+          <span class="custom-heading-light">& Claims Register</span>
+        </li>
+        <a *ngIf="loginUser" (click)="logout();">
+          <li class="p-35 pull-right selected-icon-bc ml-5">
+            <span class="glyphicon glyphicon-log-out"></span>
+          </li>
+        </a>
+        <a routerLink="/insured-person-enquiry" *ngIf="boolEnquiry">
+          <li class="p-33 pull-right" [ngClass]="(route == '/insured-person-enquiry')?'selected-icon-bc':''">
+            <img *ngIf="route != '/insured-person-enquiry'" src="assets/images/Search.png" class="img-fluid"
+              alt="Search icon">
+            <img *ngIf="route == '/insured-person-enquiry'" src="assets/images/Search-dark.png" class="img-fluid"
+              alt="Search icon">
+          </li>
+        </a>
+        <a routerLink="/authorise" *ngIf="boolAuth">
+          <li class="p-33 pull-right"
+            [ngClass]="((route == '/authorise') || (route == '/authorise-claim') || (route == '/authorise-impairment'))?'selected-icon-bc':''">
+            <img
+              *ngIf="((route != '/authorise') && (route != '/authorise-claim') && (route != '/authorise-impairment'))"
+              src="assets/images/Authorisation.png" class="img-fluid" alt="Authorisation icon">
+            <img
+              *ngIf="((route == '/authorise') || (route == '/authorise-claim') || (route == '/authorise-impairment'))"
+              src="assets/images/Authorisation-dark.png" class="img-fluid" alt="Authorisation icon">
+          </li>
+        </a>
+        <span class="badge badge-notify pull-right"
+          *ngIf="(notificationCount > 0) && boolAuth">{{notificationCount}}</span>
+        <li class="p-33-0 pull-right">
+          <span class="">Login As : {{strCurrentGivenName}} {{strCurrentSurName}} [{{strCurrentUserName}}]</span>
+         <br>
+          <span class="">Role : {{strUserRole}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

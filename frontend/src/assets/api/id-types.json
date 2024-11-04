@@ -1,0 +1,10 @@
+[
+    {
+        "identityTypeId": "1",
+        "identityTypeDesc": "SA ID"
+    },
+    {
+        "identityTypeId": "2",
+        "identityTypeDesc": "PASSPORT NUMBER"
+    }
+]

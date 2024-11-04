@@ -1,0 +1,70 @@
+[
+  {
+    "spinId": "W0",
+    "description": "Medical Report"
+  },
+  {
+    "spinId": "W1",
+    "description": "Abstract of clinical records"
+  },
+  {
+    "spinId": "W2",
+    "description": "Barium meal"
+  },
+  {
+    "spinId": "W3",
+    "description": "Blood examination count"
+  },
+  {
+    "spinId": "W4",
+    "description": "Thyroid studies"
+  },
+  {
+    "spinId": "W5",
+    "description": "Pulmonary function test"
+  },
+  {
+    "spinId": "W6",
+    "description": "Lipid studies EG cholesterol, LDL cholesterol"
+  },
+  {
+    "spinId": "W7",
+    "description": "Clinical examination by physician"
+  },
+  {
+    "spinId": "W8",
+    "description": "EEG"
+  },
+  {
+    "spinId": "W9",
+    "description": "ECG"
+  },
+  {
+    "spinId": "W10",
+    "description": "Lab urine"
+  },
+  {
+    "spinId": "W11",
+    "description": "Glucose tolerance test"
+  },
+  {
+    "spinId": "W12",
+    "description": "Investigation of renal system"
+  },
+  {
+    "spinId": "W13",
+    "description": "Liver function tests EG GGT, ALT"
+  },
+  {
+    "spinId": "W14",
+    "description": "Chest X-Ray"
+  },
+  {
+    "spinId": "W15",
+    "description": "Urea and creatinine"
+  },
+  {
+    "spinId": "W16",
+    "description": "Any other investigation INCL. HIV"
+  }
+]

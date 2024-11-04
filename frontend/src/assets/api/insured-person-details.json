@@ -1,0 +1,153 @@
+{
+    "listclaims": [
+        {
+            "b11663Number": "-",
+            "captureDate": "08/01/2019",
+            "categoryId": [
+                "string"
+            ],
+            "causeOfEvent": "Accident at Work",
+            "claimId": 201,
+            "claimReason": [
+                "string"
+            ],
+            "claimStatus": "string",
+            "claimTypes": [
+                "Dread Disease"
+            ],
+            "dateOfEvent": "08/01/2019",
+            "deathCertificateNumber": "7865483928",
+            "editReason": "test reason...",
+            "notificationID": 0,
+            "paymentMethod": "string",
+            "personId": "101",
+            "placeOfDeath": "Capetown",
+            "policyNumber": 18508738,
+            "lifeOffice": "OM"
+        },
+        {
+            "b11663Number": "-",
+            "captureDate": "08/01/2019",
+            "categoryId": [
+                "string"
+            ],
+            "causeOfEvent": "Accident at Work",
+            "claimId": 201,
+            "claimReason": [
+                "string"
+            ],
+            "claimStatus": "string",
+            "claimTypes": [
+                "Dread Disease"
+            ],
+            "dateOfEvent": "08/01/2019",
+            "deathCertificateNumber": "7865483928",
+            "editReason": "test reason...",
+            "notificationID": 0,
+            "paymentMethod": "string",
+            "personId": "101",
+            "placeOfDeath": "Capetown",
+            "policyNumber": 18508739,
+            "lifeOffice": "OM"
+        }
+    ],
+    "listimpairments": [
+        {
+            "captureDate": "08/01/2019",
+            "codeDesc": "Hypertension",
+            "editReason": "test reason...",
+            "impairmentCodeId": "LOACV008",
+            "impairmentId": 101,
+            "notificationID": 0,
+            "personId": "101",
+            "policyBenefit": [
+                "Dread Disease"
+            ],
+            "policyNumber": 18508738,
+            "readings": "-",
+            "spinId": "WO",
+            "symbolId": "X",
+            "timeSignals": "2018",
+            "lifeOffice": "OM"
+        },
+        {
+            "captureDate": "08/01/2019",
+            "codeDesc": "Hypertension",
+            "editReason": "test reason...",
+            "impairmentCodeId": "LOACV008",
+            "impairmentId": 101,
+            "notificationID": 0,
+            "personId": "101",
+            "policyBenefit": [
+                "Dread Disease"
+            ],
+            "policyNumber": 18508739,
+            "readings": "-",
+            "spinId": "WO",
+            "symbolId": "Y",
+            "timeSignals": "2019",
+            "lifeOffice": "OM"
+        }
+    ],
+    "listnotes": [
+        {
+            "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            "noteId": 101,
+            "noteType": "AA",
+            "notificationID": 0,
+            "personId": "101",
+            "policyNumber": 18508738,
+            "lifeOffice": "OML - Personal Finance",
+            "captureDate": "08/01/2019"
+        },
+        {
+            "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            "noteId": 101,
+            "noteType": "AA",
+            "notificationID": 0,
+            "personId": "101",
+            "policyNumber": 18508739,
+            "lifeOffice": "OML - Personal Finance",
+            "captureDate": "08/01/2019"
+        }
+    ],
+    "listscratchpad": [
+        {
+            "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            "noteId": 0,
+            "noteType": "AA",
+            "notificationID": 0,
+            "personId": "string",
+            "policyNumber": 18508738,
+            "lifeOffice": "OML - Personal Finance",
+            "captureDate": "08/01/2019"
+        },
+        {
+            "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            "noteId": 101,
+            "noteType": "AA",
+            "notificationID": 0,
+            "personId": "101",
+            "policyNumber": 18508739,
+            "lifeOffice": "OML - Personal Finance",
+            "captureDate": "08/01/2019"
+        }
+    ],
+    "person": {
+        "addressLine1": "Address Line1",
+        "addressLine2": "Address Line2",
+        "addressLine3": "Address Line3",
+        "dateOfBirth": "06/11/1964",
+        "gender": "Male",
+        "givenName1": "Patrick",
+        "givenName2": "-",
+        "givenName3": "-",
+        "identityNumber": "1234567890",
+        "identityTypeCode": "1",
+        "identityTypeDesc": "SA ID",
+        "personId": "101",
+        "postalCode": 123456,
+        "surname": "MKhulisi",
+        "title": "Mr"
+    }
+}

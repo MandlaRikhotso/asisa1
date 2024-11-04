@@ -1,0 +1,70 @@
+<!-- Scratchpad -->
+<div class="container-fluid">
+  <div class="jumbotron-section panel-box">
+    <span>
+      <span class="section-header">Scratchpad <span class="section-header" *ngIf="!boolStatus">History</span></span>
+      <span class="count-item mr-20" *ngIf="boolStatus">{{scratchpad.length}}</span>
+      <a (click)="addScratchpad()" *ngIf="boolStatus && boolAddNote">
+        <span class="add-button">
+          <span class="glyphicon glyphicon-plus"></span> ADD
+        </span>
+      </a>
+    </span>
+    <span class="arrow-collapse pull-right" (click)="show = !show" *ngIf="boolStatus">
+      <img *ngIf="show" src="assets/images/arrow-down.png" class="img-fluid" alt="Arrow Down">
+      <img *ngIf="!show" src="assets/images/arrow-right.png" class="img-fluid" alt="Arrow Down">
+    </span>
+
+    <div class="row panel-group custom-panel" *ngIf="show">
+      <div class="panel panel-default custom-panel-auth">
+
+        <div class="panel-heading panel-header-section" *ngIf="scratchpad.length">
+          <div class="row">
+            <div class="col-sm-3">Description</div>
+            <div class="col-sm-3" (click)="setOrder('dateCreated')">Date Created
+              <span *ngIf="order === 'dateCreated'">
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </span>
+            </div>
+            <div class="col-sm-2" (click)="setOrder('notificationSource')">Bussiness Unit
+              <span *ngIf="order === 'notificationSource'">
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </span>
+            </div>
+            <div class="col-sm-2">Created by</div>
+            <div class="col-sm-2">Policy Number</div>
+          </div>
+        </div>
+
+        <div class="panel-body panel-body-section custom-panel-border"
+          *ngFor="let scratchpad of scratchpad | orderBy: order:reverse:'case-insensitive':customComparator">
+          <div class="row">
+              <tooltip-content #commentTooltip>
+                  <span>{{scratchpad.noteText}}</span>
+                </tooltip-content>
+            <div class="col-sm-3 comment-div" [tooltip]="commentTooltip" [tooltipDisabled]="false" [tooltipAnimation]="true"
+            tooltipPlacement="top"><span>{{scratchpad.noteText}}</span></div>
+            <div class="col-sm-3" *ngIf="scratchpad.dateCreated"><span>{{scratchpad.dateCreated | date: 'dd/MM/yyyy'}}</span></div>
+            <tooltip-content #myTooltip>
+              <span>{{scratchpad.createdBy}}</span>
+            </tooltip-content>
+            <div class="col-sm-2" [tooltip]="myTooltip" [tooltipDisabled]="false" [tooltipAnimation]="true"
+              tooltipPlacement="top"><span>{{scratchpad.businessUnit}}</span></div>
+            <div class="col-sm-2"><span>{{scratchpad.createdBy}}</span></div>
+            <div class="col-sm-2"><span>{{scratchpad.policyNumber ?scratchpad.policyNumber : '-' }}</span></div>
+          </div>
+        </div>
+
+        <div class="panel-body panel-body-section custom-panel-border" *ngIf="!scratchpad.length">
+          <div class="row large-text p-30">
+            <p>Scratchpad are not available for the selected person</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<br>

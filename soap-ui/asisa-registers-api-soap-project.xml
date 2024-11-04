@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="2ce27864-8785-480b-8d40-f80b115bb51c" activeEnvironment="Default" name="asisa-registers-api" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="cd62025c-3a7e-4fde-9b48-5c51753f2678" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://10.110.11.38:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://10.110.11.38:8080</con:endpoint></con:endpoints><con:resource name="enquiry" path="/api/enquiry" id="0a2ba2a5-3f99-4255-9c1a-b75ec24d9758"><con:settings/><con:parameters/><con:resource name="enquireInsuredPersonExists" path="enquireInsuredPersonExists" id="223d9ab8-412a-4771-ba0d-726f012b6218"><con:settings/><con:parameters/><con:method name="Method 1" id="b860af08-d3fb-4b7c-bac7-7f8fb58ef2e3" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="EnquireWithDOBAndSurname" id="71c87421-63e1-4031-a3c6-6e95eac9fe07" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "dateOfBirth": "10/07/1977",
+  "identityNumber": "",
+  "identityNumberType": {
+    "code": "",
+    "description": ""
+  },
+  "surname": "NGCOBO"
+}</con:request><con:originalUri>http://10.110.11.38/api/enquiry/enquireInsuredPersonExists</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="EnquireWithIdentityNumberAndIdentityNumberTypeCode" id="46b82ad2-f60b-44ee-881b-fb0f414598c0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "dateOfBirth": "",
+  "identityNumber": "7707100499089",
+  "identityNumberType": {
+    "code": "4",
+    "description": ""
+  },
+  "surname": ""
+}</con:request><con:originalUri>http://10.110.11.38/api/enquiry/enquireInsuredPersonExists</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="enquireInsuredPersons" path="enquireInsuredPersons" id="39dab9b7-e18c-4a1c-8095-bb859cee3dd7"><con:settings/><con:parameters/><con:method name="Method 1" id="faac0938-708b-4105-b1be-ad3c094609d7" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400 500</con:status><con:params/><con:element xmlns:enq="http://10.110.11.38/api/enquiry/enquireInsuredPersons">enq:Fault</con:element></con:representation><con:request name="EnquireWithValidDOBAndSurname" id="138912f3-d785-4fa9-855d-de887b35b7f0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "dateOfBirth": "10/07/1977",
+  "identityNumber": "",
+  "identityNumberType": {
+    "code": "",
+    "description": ""
+  },
+  "surname": "NGCOBO"
+}</con:request><con:originalUri>http://10.110.11.38/api/enquiry/enquireInsuredPersons</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="EnquirewithValidIdentitynumberAndcode" id="1b2f0ef7-3791-488b-b76e-c3659ebb3eda" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "dateOfBirth": "",
+  "identityNumber": "7707100499089",
+  "identityNumberType": {
+    "code": "4",
+    "description": ""
+  },
+  "surname": ""
+}</con:request><con:originalUri>http://10.110.11.38/api/enquiry/enquireInsuredPersons</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="EnquirewithInvalidIdentityNumberTypecode" id="2f0b2bb0-5520-4776-9b66-dcb70221203e" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "dateOfBirth": "",
+  "identityNumber": "7707100499089",
+  "identityNumberType": {
+    "code": "1",
+    "description": ""
+  },
+  "surname": ""
+}</con:request><con:originalUri>http://10.110.11.38/api/enquiry/enquireInsuredPersons</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="EnquirewithInvalidDOB" id="97128448-abd6-4a24-8e0b-d52fa4fe33f6" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "dateOfBirth": "10-07-1977",
+  "identityNumber": "",
+  "identityNumberType": {
+    "code": "",
+    "description": ""
+  },
+  "surname": "NGCOBO"
+}</con:request><con:originalUri>http://10.110.11.38/api/enquiry/enquireInsuredPersons</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="EnquireWithNullValues" id="109d767f-15cb-4d68-9c4b-00f746475cd1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "dateOfBirth": "",
+  "identityNumber": "",
+  "identityNumberType": {
+    "code": "",
+    "description": ""
+  },
+  "surname": ""
+}</con:request><con:originalUri>http://10.110.11.38/api/enquiry/enquireInsuredPersons</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:resource><con:resource name="autosuggest" path="/api/autosuggest" id="bea7adcd-e5dd-4078-a1a6-0a6a6dd9a74f"><con:settings/><con:parameters/><con:resource name="autosuggestusingidnumber" path="identityNumber/123" id="d5ab97ad-4699-4b41-b875-6a3673614d4e"><con:settings/><con:parameters/><con:method name="Method 1" id="de00f683-c989-4428-8007-9cccfa21997a" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:request name="Request 1" id="52c640eb-6efe-4193-87e1-7f9567d5cbb4" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/autosuggest/identityNumber/123</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="autosuggestusingsurname" path="surname/Moo" id="a6fe237c-30bf-4311-af7e-7be425e37656"><con:settings/><con:parameters/><con:method name="Method 1" id="bacb0970-f86b-47c2-86b7-d0371af60db3" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:request name="Request 1" id="3bb202bc-ec2b-41b7-9a38-9278efe94e00" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/autosuggest/surname/m</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:resource><con:resource name="iphistory" path="/api/iphistory/4/7707100499089" id="6bf0735d-a309-4fda-8a89-61222ba2dbea"><con:settings/><con:parameters/><con:method name="Method 1" id="97ace4b7-650b-492e-ab4c-8947a5546fe8" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://10.110.11.38/api/iphistory/4/123456789">ns:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="getHistory" id="92dcbe06-33e3-4241-9a79-b457f351061b" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/iphistory/4/123456789</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="Claim" path="/api" id="79a7e0b3-9e3b-436d-b783-e9ebf5b2cece"><con:settings/><con:parameters/><con:resource name="notifiableClaims" path="notifiableClaims" id="64dd98e2-fe45-4e58-87cb-367b64ff30b7"><con:settings/><con:parameters/><con:method name="AddClaim" id="899eaca4-eb6a-44ca-9fa4-b9dab33d0a30" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:not="http://10.110.11.38/api/notifiableClaims">not:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>500 400</con:status><con:params/><con:element xmlns:not="http://10.110.11.38/api/notifiableClaims">not:Fault</con:element></con:representation><con:request name="AddClaimRequest" id="415fd567-b281-4c66-8506-f24475b1bda7" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "insuredPerson": {
+    "addressLine1": "Unit 13 Castle carey",
+    "addressLine2": "34 Alcockcresent",
+    "addressLine3": "Berea",
+    "dateOfBirth": "10/07/1977",
+    "gender": 
+      {
+        "code": "2",
+        "description": ""
+      },
+
+    "givenName1": "Ntombikhona",
+    "givenName2": "Efficiance",
+    "givenName3": "givenName3",
+    "identityNumber": "7707100499089",
+    "identityNumberType": 
+      {
+        "code": "4",
+        "description": "ID NUMBER"
+      },
+    "postalCode": 4001,
+    "surname": "NGCOBO",
+    "title": 
+      {
+        "code": "5",
+        "description": "MRS"
+      }
+  },
+  "notifications": [
+    {
+     "notes": [
+        {
+          "noteText": "add noteText",
+          "scratchpad": "Y"
+        }
+      ],
+      "notifiableClaims": [
+        {
+          "dha1663Number": "7890",
+          "claimCategory": [
+             {
+              "code": "1",
+              "description": "EARLY CLM POLICY IN FORCE &lt; 1 YRS FROM DOE, ETC"
+            }
+          ],
+          "claimReason": [
+             {
+             "code": "AD12",
+            "description": "KYPHOSIS"
+            }            
+          ],
+          "claimStatus": 
+            {
+              "code": "4",
+              "description": "UNPAID"
+            },
+          "eventCause": 
+            {
+              "code": "10",
+              "description": "REPUDIATED WITH EX GRATIA"
+            },
+          "eventDate": "18/01/2019",
+          "eventDeathCertificateNo": "1234567",
+          "eventDeathPlace": "Pune",
+	  "notificationID" : "",
+          "paymentMethod": 
+            {
+              "code": "10",
+             "description": "EFT"
+            },
+          "updateReason": ""
+        }
+      ],     
+      "policyBenefit":
+        {
+	  "claimType" : "",
+          "code": "16",
+          "description": "DREAD DISEASE"
+        },
+      "policyNumber": "12"
+    }
+
+  ]
+
+}</con:request><con:originalUri>http://10.110.11.38/api/notifiableClaims</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="notifiableClaim" path="notifiableClaim" id="104644a6-7397-44e6-a83b-aacf063c5240"><con:settings/><con:parameters/><con:method name="UpdateClaim" id="ed433f50-2c50-403f-87e1-3e0e92dcc87c" method="PUT"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:not="http://10.110.11.38/api/notifiableClaim">not:Response</con:element></con:representation><con:request name="UpdateRequest" id="52f6df0e-3580-4be2-b10c-29ec63046ff5" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "dha1663Number": "jg",
+  "claimCategory": [
+    {
+      "code": "11",
+      "description": "EARLY INDIV CLM WHERE POLICY IN FORCE FOR &lt; 2 YRS IRRESP OF INSURED AMT"
+    }
+  ],
+  "claimReason": [
+    {
+      "code": "M31.6",
+      "description": "TEMPORAL ARTERITIS"
+    }
+  ],
+  "claimStatus": {
+    "code": "4",
+    "description": "UNPAID / PENDING"
+  },
+  "delete": false,
+  "eventCause": {
+    "code": "1",
+    "description": "NATURAL"
+  },
+  "eventDate": "01/03/2019",
+  "eventDeathCertificateNo": "jyufhj",
+  "eventDeathPlace": "indore",
+  "notes": [
+    {
+      "noteText": "DISABILITY INCOME REPLACEMENT",
+      "scratchpad": "N"
+    },
+    {
+      "noteText": "DISABILITY INCOME REPLACEMENT",
+      "scratchpad": "Y"
+    }
+  ],
+  "notifiableClaimRefID": "25",
+  "notificationID": "58fc9bec-be70-42ea-8cf4-5f6472cfd470",
+  "paymentMethod": {
+    "code": "10",
+    "description": "EFT"
+  },
+  "updateReason": "update"
+}</con:request><con:originalUri>http://10.110.11.38/api/notifiableClaim</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="DeleteRequest" id="d8dc3103-1650-47a5-ba4d-36c6716fddb4" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "dha1663Number": "jg",
+  "claimCategory": [
+    {
+      "code": "11",
+      "description": "EARLY INDIV CLM WHERE POLICY IN FORCE FOR &lt; 2 YRS IRRESP OF INSURED AMT"
+    }
+  ],
+  "claimReason": [
+    {
+      "code": "M31.6",
+      "description": "TEMPORAL ARTERITIS"
+    }
+  ],
+  "claimStatus": {
+    "code": "4",
+    "description": "UNPAID / PENDING"
+  },
+  "delete": true,
+  "eventCause": {
+    "code": "1",
+    "description": "NATURAL"
+  },
+  "eventDate": "01/03/2019",
+  "eventDeathCertificateNo": "jyufhj",
+  "eventDeathPlace": "indore",
+  "notes": [
+    {
+      "noteText": "DISABILITY INCOME REPLACEMENT",
+      "scratchpad": "N"
+    },
+    {
+      "noteText": "DISABILITY INCOME REPLACEMENT",
+      "scratchpad": "Y"
+    }
+  ],
+  "notifiableClaimRefID": "25",
+  "notificationID": "58fc9bec-be70-42ea-8cf4-5f6472cfd470",
+  "paymentMethod": {
+    "code": "10",
+    "description": "EFT"
+  },
+  "updateReason": "update"
+}</con:request><con:originalUri>http://10.110.11.38/api/notifiableClaim</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:resource><con:resource name="Impairment" path="/api" id="7d0e6d54-b161-4b17-a60d-767cbd2addee"><con:settings/><con:parameters/><con:resource name="notifiableImpairments" path="notifiableImpairments" id="ff5b350f-0e36-4209-b16b-335a9ebd9bdd"><con:settings/><con:parameters/><con:method name="AddImpairment" id="2220fe87-763c-43ac-9e80-c70fbdbc4701" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:not="http://10.110.11.38/api/notifiableImpairments">not:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="AddImpairmentRequest" id="1478bab8-e6ac-40d2-b45b-f5e9deb9be93" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "insuredPerson": {
+    "addressLine1": "Unit 13 castle carey",
+    "addressLine2": "34 Alcockcresent",
+    "addressLine3": "Berea",
+    "dateOfBirth": "10/07/1977",
+    "gender": {
+      "code": "2",
+      "description": "Female"
+    },
+    "givenName1": "Ntombikhona",
+    "givenName2": "Efficiance",
+    "givenName3": "string",
+    "identityNumber": "7707100499089",
+    "identityNumberType": 
+                  {
+        "code": "4",
+        "description": "ID NUMBER"
+      },
+    "postalCode": 4001,
+    "surname": "Ngcobo",
+    "title": 
+      {
+        "code": "5",
+        "description": "MRS"
+      }
+                
+  },
+"notifications": [
+    {
+      "notes": [
+        {
+          "noteText": "add notetext",
+          "scratchpad": "Y"
+        }
+      ],
+      "notifiableImpairments": [
+        {
+          "impairment":                          
+            {
+                                                "code" : "AD12",
+             "description" : "KYPHOSIS",
+             "impairmentCodeGroupId": "OLD"
+            },                                                
+          "readings": "2019",
+          "specialInvestigation": [
+            {
+              "code": "W0",
+              "description": "Medical Report"
+            }
+          ],
+          "symbol": [
+            {
+              "code": "N",
+              "description": "Non-Medical"
+            }
+          ],
+          "timeSignal": "2019",
+          "updateReason": ""
+        }
+      ],
+      "policyBenefit": 
+        {
+          "code": "1",
+          "description": "RISK/DEATH BENEFIT"
+        },
+                                
+      "policyNumber": "123456"
+    }
+  ]
+}
+</con:request><con:originalUri>http://10.110.11.38/api/notifiableImpairments</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="notifiableImpairment" path="notifiableImpairment" id="54e23bca-f387-4fc0-b894-6dc27bd25c35"><con:settings/><con:parameters/><con:method name="UpdateImpairment" id="6fa61604-57d7-413e-b12e-ea4b24b22f4d" method="PUT"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:not="http://10.110.11.38/api/notifiableImpairment">not:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:not="http://10.110.11.38/api/notifiableImpairment">not:Response</con:element></con:representation><con:request name="UpdateRequest" id="ac4854c0-88b9-4073-ad6c-1e200aca9dae" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "delete": false,
+  "impairment": {
+    "code" : "AD12",
+             "description" : "KYPHOSIS"
+  },
+  "notes": [
+    {
+      "noteText": "delete text",
+      "scratchpad": "Y"
+    }
+  ],
+  "notifiableImpairmentID": 0,
+  "notificationID": "e0f4a81d-2340-489c-b871-4bc8e5d116e5",
+  "readings": "2010",
+  "specialInvestigation": [
+    {
+      "code": "W0",
+              "description": "Medical Report"
+    }
+  ],
+  "symbol": [
+    {
+      "code": "N",
+      "description": "Non-Medical"
+    }
+  ],
+  "timeSignal": "3019",
+  "updateReason": "update impairment"
+}</con:request><con:originalUri>http://10.110.11.38/api/notifiableImpairment</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="DeleteRequest" id="03820fb9-9598-4e51-b062-557e634df6fa" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "delete": true,
+  "impairment": {
+    "code" : "AD12",
+             "description" : "KYPHOSIS"
+  },
+  "notes": [
+    {
+      "noteText": "delete text",
+      "scratchpad": "Y"
+    }
+  ],
+  "notifiableImpairmentID": 0,
+  "notificationID": "e0f4a81d-2340-489c-b871-4bc8e5d116e5",
+  "readings": "2010",
+  "specialInvestigation": [
+    {
+      "code": "W0",
+              "description": "Medical Report"
+    }
+  ],
+  "symbol": [
+    {
+      "code": "N",
+      "description": "Non-Medical"
+    }
+  ],
+  "timeSignal": "3019",
+  "updateReason": "update impairment"
+}</con:request><con:originalUri>http://10.110.11.38/api/notifiableImpairment</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:resource><con:resource name="refdata" path="/api/refdata" id="9d397b55-2e64-4b74-b84f-8306973876fb"><con:settings/><con:parameters/><con:resource name="claimCategories" path="claimCategories" id="7f2d79f6-c353-466c-afaa-424d04826fec"><con:settings/><con:parameters/><con:method name="Method 1" id="d675ae43-7a62-4247-b88c-f765f73ddfe6" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:cla="http://10.110.11.38/api/refdata/claimCategories">cla:Response</con:element></con:representation><con:request name="getClaimCategories" id="801cafd8-4742-48fb-ae89-e52c77b5c8d2" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/refdata/claimCategories</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="claimCauses" path="claimCauses" id="4afa74d7-b97b-4c12-8262-26607d74d36d"><con:settings/><con:parameters/><con:method name="Method 1" id="14ceb25c-8ec1-451d-884d-b57dfe875e05" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:cla="http://10.110.11.38/api/refdata/claimCauses">cla:Response</con:element></con:representation><con:request name="getclaimCauses" id="2c0dd67b-407d-42d5-8a0d-33dcd07cb48b" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/refdata/claimCauses</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="claimStatuses" path="claimStatuses" id="f4fcb9b0-be7f-4fa4-9f1b-4b04eb6d9add"><con:settings/><con:parameters/><con:method name="Method 1" id="28f44098-3e96-4d5e-8dba-1bcdad3c0f38" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:cla="http://10.110.11.38/api/refdata/claimStatuses">cla:Response</con:element></con:representation><con:request name="getclaimStatuses" id="5e126ea1-5585-48a3-87ec-8bcd4662088c" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/refdata/claimStatuses</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="genders" path="genders" id="16f72d4d-eae5-4b5d-998d-350039ec40b7"><con:settings/><con:parameters/><con:method name="Method 1" id="8a902cee-2ee7-438d-9a00-f03908952764" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:gen="http://10.110.11.38/api/refdata/genders">gen:Response</con:element></con:representation><con:request name="getgenders" id="392ba148-1323-48df-82a3-0f0d2b34fc5e" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/refdata/genders</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="identityTypes" path="identityTypes" id="fe86b2b0-83e1-4cd7-b2b1-1bf028be45a0"><con:settings/><con:parameters/><con:method name="Method 1" id="91cbb81c-37bb-4af9-bb84-137bce51138b" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:iden="http://10.110.11.38/api/refdata/identityTypes">iden:Response</con:element></con:representation><con:request name="getIdentityTypes" id="36a6d536-4f54-4f9e-bafa-730cbd0ed40d" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/refdata/identityTypes</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="impairmentCodes" path="impairmentCodes" id="9785717c-90b8-43bf-a65f-d85b6ef66718"><con:settings/><con:parameters/><con:method name="Method 1" id="7aeee497-02ef-4efb-b74b-3df93f4e9997" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:imp="http://10.110.11.38/api/refdata/impairmentCodes">imp:Response</con:element></con:representation><con:request name="getImpairmentCodes" id="cd78b8cd-ed46-4c85-8788-a13b5a75c436" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/refdata/impairmentCodes</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="paymentMethods" path="paymentMethods" id="1bdb2d27-843d-463a-a372-47d809478281"><con:settings/><con:parameters/><con:method name="Method 1" id="4165c368-1544-401e-92d0-045fec01e95e" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:pay="http://10.110.11.38/api/refdata/paymentMethods">pay:Response</con:element></con:representation><con:request name="getPaymentMethods" id="01c3e239-47a2-4039-813a-bbd436fab937" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/refdata/paymentMethods</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="policyBenefits" path="policyBenefits" id="cbdf22fd-3b6a-4c7e-a27e-2d6590afecdc"><con:settings/><con:parameters/><con:method name="Method 1" id="ed94e214-1e65-4b11-832a-46e687a770f0" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:pol="http://10.110.11.38/api/refdata/policyBenefits">pol:Response</con:element></con:representation><con:request name="getpolicyBenefits" id="6b2b66b0-ea26-4e0d-9aa2-796930512b64" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/refdata/policyBenefits</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="specialInvestigations" path="specialInvestigations" id="4d548e9f-9405-4d4d-b88e-368b96b0daad"><con:settings/><con:parameters/><con:method name="Method 1" id="17c91faf-2c73-418f-b3d5-022a473cb1ab" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:spec="http://10.110.11.38/api/refdata/specialInvestigations">spec:Response</con:element></con:representation><con:request name="getspecialInvestigations" id="c7f404c9-d5d0-424d-ba42-72cca177e6e2" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/refdata/specialInvestigations</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="symbols" path="symbols" id="abb9b53c-8e5e-435f-a033-861f7fb9f61e"><con:settings/><con:parameters/><con:method name="Method 1" id="be24c5ea-1ed2-4661-a4ab-a4078d7624b7" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:sym="http://10.110.11.38/api/refdata/symbols">sym:Response</con:element></con:representation><con:request name="getsymbols" id="a3b1f3da-158e-414f-a15f-cc8ed5ba5ac9" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/refdata/symbols</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="timeSignal" path="timeSignal" id="f4f51690-ea33-43e5-9558-895a50f727e0"><con:settings/><con:parameters/><con:method name="Method 1" id="9ec0fb17-6a4b-48be-8ab3-ce72261e5a57" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:tim="http://10.110.11.38/api/refdata/timeSignal">tim:Response</con:element></con:representation><con:request name="gettimeSignal" id="2bc121ef-86db-458d-b0fa-f00fa260aef9" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/refdata/timeSignal</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="titles" path="titles" id="96b98065-2c3f-472c-af5d-8d18a3fd9dae"><con:settings/><con:parameters/><con:method name="Method 1" id="b28c54a7-b099-46cb-8c64-c66b629bc453" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:tit="http://10.110.11.38/api/refdata/titles">tit:Response</con:element></con:representation><con:request name="gettitles" id="6b1f1f14-3fdc-4167-a3df-0984010d0523" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/refdata/titles</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:resource><con:resource name="Impairments authorize" path="/api/impairments" id="be235091-054f-4d1a-86d3-25c4f6209cde"><con:settings/><con:parameters/><con:resource name="approval" path="approval" id="1095c64d-7589-4fb3-8953-a8370da50385"><con:settings/><con:parameters/><con:method name="Method 1" id="4cad926d-b754-445a-b193-c74b0894b852" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:app="http://10.110.11.38/api/impairments/approval">app:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:app="http://10.110.11.38/api/impairments/approval">app:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="ApproveForUpdate" id="4c37d829-2bcf-4fe3-87a1-6657d42ebf03" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "action": "APPROVE",
+  "actionRemark": "string",
+  "notificationID": "e0f4a81d-2340-489c-b871-4bc8e5d116e5",
+  "transType": "UPDATE"
+}
+
+
+</con:request><con:originalUri>http://10.110.11.38/api/impairments/approval</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="ApproveForDelete" id="a3c1e25e-fdee-4d5e-a9d1-4e9678260f8c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "action": "APPROVE",
+  "actionRemark": "string",
+  "notificationID": "e0f4a81d-2340-489c-b871-4bc8e5d116e5",
+  "transType": "DELETE"
+}</con:request><con:originalUri>http://10.110.11.38/api/impairments/approval</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="RejectForUpdate" id="3eba3b27-8100-40e8-8859-f3537b7ed082" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "action": "REJECT",
+  "actionRemark": "string",
+  "notificationID": "e0f4a81d-2340-489c-b871-4bc8e5d116e5",
+  "transType": "UPDATE"
+}</con:request><con:originalUri>http://10.110.11.38/api/impairments/approval</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="RejectForDelete" id="5f71f21c-b3e0-47b2-9f24-06d2f6c44aef" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "action": "REJECT",
+  "actionRemark": "string",
+  "notificationID": "e0f4a81d-2340-489c-b871-4bc8e5d116e5",
+  "transType": "DELETE"
+}</con:request><con:originalUri>http://10.110.11.38/api/impairments/approval</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="authorize" path="authorize" id="00fcc12d-449a-492d-821a-6b28e2e52a00"><con:settings/><con:parameters/><con:method name="Method 1" id="205fc40f-b473-480b-a755-dd41ef071fe0" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:request name="DisplayImpairmentsPendingForApproval" id="6fed1922-14ea-4c64-bdaa-9719c11b608d" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/impairments/authorize</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="DisplayOldAndUpdatedImpairments" path="authorize/e0f4a81d-2340-489c-b871-4bc8e5d116e5" id="3ad3af32-ee47-41dc-867d-6339ab329fe3"><con:settings/><con:parameters><con:parameter><con:name>notifiableImpairmentId</con:name><con:value>notifiableImpairmentId</con:value><con:style>TEMPLATE</con:style><con:default>notifiableImpairmentId</con:default></con:parameter></con:parameters><con:method name="Method 1" id="6c27a012-be87-4986-81b9-fbb2bd98ffa7" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:b34="http://10.110.11.38/api/impairments/authorize/24b347e3-f811-4d6c-b120-5b0c35604fd8">b34:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:b34="http://10.110.11.38/api/impairments/authorize/24b347e3-f811-4d6c-b120-5b0c35604fd8">b34:Response</con:element></con:representation><con:request name="DisplayOldAndUpdatedImpairments" id="d6e7a3a2-e996-4ea7-879f-63a833b39093" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/impairments/authorize/24b347e3-f811-4d6c-b120-5b0c35604fd8</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:resource><con:resource name="Claims authorize" path="/api/claims" id="c25ba42c-d65d-419d-80a2-6a2a08601946"><con:settings/><con:parameters/><con:resource name="approve" path="approve" id="f94f2364-40c0-46cb-b1ec-7dcdb8aa096a"><con:settings/><con:parameters/><con:method name="Method 1" id="2e3a96f2-5e09-43ef-a750-1ac99e275227" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:app="http://10.110.11.38/api/claims/approve">app:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:app="http://10.110.11.38/api/claims/approve">app:Response</con:element></con:representation><con:request name="ApproveForUpdate" id="7e794b3b-7876-4d2d-8766-0b29d6535966" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "action": "APPROVE",
+  "actionRemark": "string",
+  "notificationID": "58fc9bec-be70-42ea-8cf4-5f6472cfd470",
+  "transType": "UPDATE"
+}
+</con:request><con:originalUri>http://10.110.11.38/api/claims/approve</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="ApproveForDelete" id="1dc51e56-bf0b-46d6-a083-c5d0882216ba" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "action": "APPROVE",
+  "actionRemark": "string",
+  "notificationID": "58fc9bec-be70-42ea-8cf4-5f6472cfd470",
+  "transType": "DELETE"
+}
+</con:request><con:originalUri>http://10.110.11.38/api/claims/approve</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="RejectForUpdate" id="e1c9c4e6-1bb0-481f-b806-1c5fd9b2b69f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "action": "REJECT",
+  "actionRemark": "string",
+  "notificationID": "58fc9bec-be70-42ea-8cf4-5f6472cfd470",
+  "transType": "UPDATE"
+}
+</con:request><con:originalUri>http://10.110.11.38/api/claims/approve</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="RejectForDelete" id="e0221ee8-18b8-4186-b566-0bd3341a9f05" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "action": "REJECT",
+  "actionRemark": "string",
+  "notificationID": "58fc9bec-be70-42ea-8cf4-5f6472cfd470",
+  "transType": "DELETE"
+}</con:request><con:originalUri>http://10.110.11.38/api/claims/approve</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="authorize" path="authorize" id="8a72f2e2-39be-4d51-9e45-3ac37f1feae2"><con:settings/><con:parameters/><con:method name="Method 1" id="5baabf4f-85d8-40c0-8ca7-363e30b248a6" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>Response</con:element></con:representation><con:request name="DisplayClaimsPendingForApproval" id="2e55c25f-62ba-4694-9e44-fd5eb314fd07" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/claims/authorize</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="DisplayOldAndUpdatedClaims" path="authorize/58fc9bec-be70-42ea-8cf4-5f6472cfd470" id="e5505dd4-6d04-43f2-b7ca-9c2716c42bb9"><con:settings/><con:parameters><con:parameter><con:name>notifiableClaimId</con:name><con:value>notifiableClaimId</con:value><con:style>TEMPLATE</con:style><con:default>notifiableClaimId</con:default></con:parameter></con:parameters><con:method name="Method 1" id="fdf8d7f6-1c36-425d-92ac-a619d84a84ba" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:b34="http://10.110.11.38/api/claims/authorize/24b347e3-f811-4d6c-b120-5b0c35604fd8">b34:Response</con:element></con:representation><con:request name="DisplayOldAndUpdatedClaims" id="25b54401-8b35-4bfe-af1c-affa62d2f045" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request/><con:originalUri>http://10.110.11.38/api/claims/authorize/24b347e3-f811-4d6c-b120-5b0c35604fd8</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:resource><con:resource name="asisauser" path="/api/asisauser" id="a9c278c1-2814-4ce5-89ea-bcc8a45f5f4f"><con:settings/><con:parameters/><con:resource name="createAsisaUser" path="createAsisaUser" id="8d4c1e68-509e-405f-9974-49dfc374f491"><con:settings/><con:parameters/><con:method name="Method 1" id="f06c1d35-1c81-4471-95b3-ab26ffc801b6" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:cre="http://10.110.11.38/api/asisauser/createAsisaUser">cre:Response</con:element></con:representation><con:request name="Request 1" id="f6696137-0d2f-4bc8-b1b5-2f38e61bc460" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "businessUnit": "Personal Finance",
+  "omUserId": "XY45474",
+  "roleCode": "ENQUIRY"
+}</con:request><con:originalUri>http://10.110.11.38/api/asisauser/createAsisaUser</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="getUserDetails" path="getUserDetails" id="77b8b730-fdbc-4da1-bdba-5246e7c92728"><con:settings/><con:parameters/><con:method name="Method 1" id="6926cfb4-4bb7-47a3-aeef-9440ee6019bf" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:get="http://10.110.11.38/api/asisauser/getUserDetails">get:Response</con:element></con:representation><con:request name="Request 1" id="75e488f3-bcc4-4f0b-8bc6-c2b0e1ed0328" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>XY45474</con:request><con:originalUri>http://10.110.11.38/api/asisauser/getUserDetails</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="updateAsisaUser" path="updateAsisaUser" id="c7f95fa6-1bc8-4ccb-b901-11c86541a521"><con:settings/><con:parameters/><con:method name="Method 1" id="4097fcf5-48b5-4cee-b772-3635b905ef60" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:upd="http://10.110.11.38/api/asisauser/updateAsisaUser">upd:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="a02ce04e-1491-44db-a585-9ba04349a8ae" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://10.110.11.38:8080</con:endpoint><con:request>{
+  "businessUnit": "personal finance",
+  "omUserId": "XY45474",
+  "roleCode": "ENQUIRY_FULL"
+}</con:request><con:originalUri>http://10.110.11.38/api/asisauser/updateAsisaUser</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:resource></con:interface><con:endpointStrategy xsi:type="con:DefaultEndpointStrategy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:endpoint mode="OVERRIDE">https://10.110.11.38:8080</con:endpoint></con:endpointStrategy><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

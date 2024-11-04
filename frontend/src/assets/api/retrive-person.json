@@ -1,0 +1,118 @@
+{"Person": [{
+    "externalReference": "K0B6WAS8NLR84",
+    "birthDate": "1959-11-23",
+    "gender": "FEMALE",
+    "maritalStatus": "MARRIED",
+    "maritalContractType": "CIVM ACC",
+    "maritalStatusDate": "2010-01-01",
+    "PersonName": [   {
+       "nameType": "LEGAL NAME",
+       "initials": "M",
+       "firstName": "MAHESVARI",
+       "lastName": "DHOOLAB",
+       "middleNames": "",
+       "prefixTitles": "MRS",
+       "suffixTitles": "",
+       "shortFirstName": "",
+       "fullName": "MAHESVARI DHOOLAB"
+    }],
+    "ContactPreference":    [
+             {
+          "usage": "BUSINESS",
+          "ContactPointInPreference": {"LandLineNumber":          {
+             "externalReference": "23SK183G3IERW05TADAP",
+             "startDate": "2016-07-16",
+             "countryCode": "ZA",
+             "countryPhoneCode": "27",
+             "telephoneNumber": "0155162653"
+          }}
+       },
+             {
+          "usage": "PERSONAL",
+          "ContactPointInPreference":          {
+             "LinePostalAddress":             {
+                "externalReference": "16SK183G3IERUDMQADAP",
+                "startDate": "2016-07-26",
+                "countryCode": "ZA",
+                "addressLines": "PO BOX 241,LOUIS TRICHARDT",
+                "postalCode": "0920"
+             },
+             "LineStreetAddress":             {
+                "externalReference": "71MK1DI89KH068P8ADAP",
+                "startDate": "2018-10-03",
+                "countryCode": "ZA",
+                "addressLines": "MUTUALPARK,PINELANDS",
+                "postalCode": "7405"
+             },
+             "LandLineNumber":             {
+                "externalReference": "19SK183G3IERV1MBADAP",
+                "startDate": "2016-07-16",
+                "countryCode": "ZA",
+                "countryPhoneCode": "27",
+                "telephoneNumber": "0155162193"
+             },
+             "FaxNumber":             {
+                "externalReference": "22SK183G3IERVOXVADAP",
+                "startDate": "2016-07-16",
+                "countryCode": "ZA",
+                "countryPhoneCode": "27",
+                "telephoneNumber": "0155161281"
+             },
+             "MobileNumber":             {
+                "externalReference": "78MK1DI89KH07PFLADAP",
+                "startDate": "2018-10-03",
+                "countryCode": "ZA",
+                "countryPhoneCode": "27",
+                "telephoneNumber": "0794919944"
+             },
+             "EmailAddress":             {
+                "externalReference": "71XK17YKNLRP7K7ZADAP",
+                "startDate": "2016-07-26",
+                "emailAddress": "SATYAM.DHOOLAB@GMAIL.COM"
+             }
+          }
+       }
+    ],
+    "PartyRoles":    [
+             {
+          "typeName": "LIFE ASSURED",
+          "startDate": "0001-01-01",
+          "externalReference": "7979688",
+          "externalSystemID": "FLEXI-PRODUCT DATABASE"
+       },
+             {
+          "typeName": "PREFERRED SERVICING INTERMEDIARY",
+          "startDate": "2007-11-10",
+          "externalReference": "704945",
+          "externalSystemID": "AGENCY"
+       }
+    ],
+    "PartyRegistration":    [
+             {
+          "externalReference": "K0B6WAS8NLR84",
+          "typeName": "SOFTWARE SYSTEM",
+          "isRegisteredBySoftwareSystem": "GROUP CLIENT SYSTEM",
+          "issueDate": "2004-09-18"
+       },
+             {
+          "externalReference": "66202248",
+          "typeName": "SOFTWARE SYSTEM",
+          "isRegisteredBySoftwareSystem": "INDIVIDUAL LIFE",
+          "issueDate": "2003-10-21"
+       },
+             {
+          "externalReference": "",
+          "typeName": "COUNTRY OF TAX RESIDENCY",
+          "isRegisteredByCountry": "ZA",
+          "issueDate": "2015-07-21",
+          "nationality": "ZA"
+       },
+             {
+          "externalReference": "5911230051081",
+          "typeName": "IDENTITY CARD",
+          "isRegisteredByCountry": "ZA",
+          "issueDate": "2007-06-08",
+          "nationality": "ZA"
+       }
+    ]
+ }]}

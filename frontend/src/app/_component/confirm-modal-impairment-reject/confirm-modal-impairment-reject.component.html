@@ -1,0 +1,33 @@
+<!-- Modal Start-->
+<div id="impRejectModal" class="modal fade" role="dialog">
+  <form [formGroup]="confirmImpRejectForm" (ngSubmit)="confirmImpairmentReject(confirmImpRejectForm.value)">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content custom-modal">
+        <div class="modal-header">
+          <a><i class="fa fa-close" data-dismiss="modal" #closeBtn></i></a>
+          <h4 class="modal-title"><span class="glyphicon glyphicon-trash custom-text-danger"></span><span class="m-15">Enter a reason for rejection.</span></h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="reason" class="custom-label">Reason <span class="text-danger">*</span></label><br>
+            <textarea formControlName="reason" class="form-control custom-min-height custom-border-input" placeholder="Type in Authoriser comments for Rejection"
+              [ngClass]="{ 'is-invalid': submitted  && confirmImpRejectForm.controls.reason.errors }"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer custom-background-color">
+          <div class="row">
+            <div class="col-sm-6">
+              <button type="submit" class="btn btn-default btn-block btn-cancel">SUBMIT</button>
+            </div>
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-default btn-block btn-cancel" (click)="closeModal()">CANCEL</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>
+<!-- Modal End -->

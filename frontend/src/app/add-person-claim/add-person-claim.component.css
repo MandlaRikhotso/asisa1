@@ -1,0 +1,6 @@
+.selected-list .c-list .c-token .c-label {
+max-width: 221px !important;
+overflow: hidden !important;
+text-overflow: ellipsis !important;
+max-height: 20px !important;
+}

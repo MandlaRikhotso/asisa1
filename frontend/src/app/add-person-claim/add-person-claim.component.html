@@ -1,0 +1,149 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+<div class="container-fluid">
+  <app-alert></app-alert>
+<div class="row" *ngIf=" this.arrTabData[2].tabName === 'EDIT CLAIM'">
+    <div class="col-sm-12 ">
+      <div>Note : authorization required for Date of Event , Place of Death , Death Certificate Number  and BI1663 Number</div>
+    </div>
+  </div>
+  <br>
+  <form [formGroup]="claimForm">
+    <div formArrayName="policies">
+      <div *ngFor="let policy of claimForm['controls']['policies']['controls']; let i=index">
+        <div [formGroupName]="i">
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="dob" class="custom-label">Policy Number<span class="text-danger">*</span></label>
+                <input type="text" formControlName="policyNumber" class="form-control" placeholder="Policy Number"
+                  [readonly]="isReadOnly()" (keyup)="validateData()">
+              </div>
+            </div>
+            <div class="col-sm-3" >
+              <div class="form-group">
+                <label for="dob" class="custom-label">Claim Type(s)<span class="text-danger">*</span></label>
+                <angular2-multiselect [data]="claimTypes" [settings]="claimTypeSetting" formControlName="claimType"
+                  (onSelect)="validateData();formControlValueChanged(policy,i)"
+                  (onDeSelect)="validateData();formControlValueChanged(policy,i)">
+                </angular2-multiselect>
+              </div>
+            </div>
+            <div class="col-sm-4" >
+              <div class="form-group">
+                <label for="dob" class="custom-label">Category ID<span class="text-danger">*</span></label>
+                <angular2-multiselect [data]="categoryIds" [settings]="claimCategorySetting"
+                  formControlName="categoryId" (onSelect)="validateData()" (onDeSelect)="validateData()">
+                </angular2-multiselect>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <span class="glyphicon glyphicon-trash pull-right or-section"
+                *ngIf="claimForm.controls.policies.controls.length > 1" (click)="removeClaimPolicy(i)"></span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2" >
+              <div class="form-group">
+                <label for="dob" class="custom-label">Date of Event<span class="text-danger">*</span></label>
+                <div class='input-group date'>
+                  <input type='text' class="form-control" placeholder="DD/MM/YYYY" formControlName="dateOfEvent"
+                    #dp="bsDatepicker" bsDatepicker 
+ [bsConfig]="datePickerConfig"  (ngModelChange)="formControlFieldChanged()"/>
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar" (click)="dp.toggle()"
+                      [attr.aria-expanded]="dp.isOpen"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2" *ngIf="claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'RISK/DEATH BENEFIT') || claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'FUNERAL POLICY') || claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'OTHER')">
+              <div class="form-group">
+                <label for="dob" class="custom-label">Cause of Event<span class="text-danger" *ngIf="claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'RISK/DEATH BENEFIT') || claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'FUNERAL POLICY') || claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'OTHER')">*</span></label>
+                <angular2-multiselect [data]="causeOfEvents" [settings]="causeOfEventSetting"
+                  formControlName="causeOfEvent" (onSelect)="validateData() ; formControlValidAllowed()" (onDeSelect)="validateData(); formControlValidAllowed()">
+                </angular2-multiselect>
+              </div>
+            </div>
+            <div class="col-sm-2" *ngIf="claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'RISK/DEATH BENEFIT') || claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'FUNERAL POLICY') || claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'OTHER')">
+              <div class="form-group">
+                <label for="dob" class="custom-label">Place of Death<span *ngIf="claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'RISK/DEATH BENEFIT') || claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'FUNERAL POLICY') || claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'OTHER')"
+                    class="text-danger">*</span></label>
+                <input type="text" class="form-control" placeholder="Type in" formControlName="placeOfDeath"
+                  (ngModelChange)="formControlFieldChanged()">
+              </div>
+            </div>
+            <div class="col-sm-3" *ngIf="claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'RISK/DEATH BENEFIT') || claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'FUNERAL POLICY') || claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'OTHER')">
+              <div class="form-group">
+                <label for="dob" class="custom-label">Death Certificate Number</label>
+                <input type="text" class="form-control" placeholder="Type in" formControlName="dateCertificateNumber"
+                  (ngModelChange)="formControlFieldChanged()">
+              </div>
+            </div>
+            <div class="col-sm-2" *ngIf="claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'RISK/DEATH BENEFIT') || claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'FUNERAL POLICY') || claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] === 'OTHER')">
+              <div class="form-group">
+                <label for="dob" class="custom-label">DHA1663</label>
+                <input type="text" class="form-control" placeholder="Type in" formControlName="dha1663Number"
+                  (ngModelChange)="formControlFieldChanged()">
+              </div>
+            </div>
+          <!-- </div>
+          <div class="row"> -->
+            <div class="col-sm-4" *ngIf="claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] != 'RETRENCHMENT')">
+              <div class="form-group">
+                <label for="claimReason" class="custom-label">Claim Reason(s)<span *ngIf="claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] != 'RISK/DEATH BENEFIT') && claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] != 'FUNERAL POLICY') && claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] != 'OTHER') && claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] != 'RETRENCHMENT')"
+                    class="text-danger">*</span></label>
+                <angular2-multiselect [data]="claimReasons" [settings]="claimReasonSetting"
+                  formControlName="claimReason" (onSelect)="validateData() ; formControlFieldChanged()" (onDeSelect)="validateData() ; formControlFieldChanged()">
+                </angular2-multiselect>
+              </div>
+            </div>
+            <div class="col-sm-2" *ngIf="claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] != '') ">
+              <div class="form-group">
+                <label for="dob" class="custom-label">Claim Status</label>
+                <angular2-multiselect [data]="claimStatus" [settings]="claimStatusSetting" formControlName="claimStatus"
+                  (onSelect)="validateData() ; formControlValidAllowed()" (onDeSelect)="validateData(); formControlValidAllowed()">
+                </angular2-multiselect>
+              </div>
+            </div>
+            <div class="col-sm-2" *ngIf="claimForm['value']['policies'][i]['claimType'] && (claimForm['value']['policies'][i]['claimType'][0]['description'] != '') ">
+              <div class="form-group">
+                <label for="dob" class="custom-label">Pay Method</label>
+                <angular2-multiselect [data]="payMethods" [settings]="payMethodSetting" formControlName="payMethod"
+                  (onSelect)="validateData() ; formControlValidAllowed()" (onDeSelect)="validateData() ; formControlValidAllowed()">
+                </angular2-multiselect>
+              </div>
+            </div>
+          </div>
+          <div class="row" *ngIf="!seltabName">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="dob" class="custom-label">Reason for Editing this Claim<span  *ngIf="flagShow"
+                    class="text-danger">*</span></label>
+                <textarea class="form-control custom-min-height"
+                  placeholder="Please enter your comments for editing this claim record" formControlName="editReason"
+                  (ngModelChange)="formControlValidChanged()"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </form>
+
+  <div class="row" *ngIf="seltabName">
+    <div class="col-sm-2">
+      <button type="button" (click)="addClaimPolicy()" [disabled]="!claimForm.valid" class="btn btn-default btn-block btn-dark">Add Policy</button>
+    </div>
+        <div class="col-sm-3">
+      <button type="button" (click)="addClaimType()" [disabled]="!claimForm.valid" class="btn btn-default btn-block btn-dark">Add Claim</button>
+    </div>
+    <div class="col-sm-7">
+      <button type="button" (click)="clearData()"
+        class="btn btn-default btn-block btn-cancel custom-find-button-width pull-right">Clear
+        Data</button>
+    </div>
+  </div>
+</div>
+<br><br>
+<app-claims-history *ngIf="selectedPersonId" [insuredPersonId]="selectedPersonId"></app-claims-history>

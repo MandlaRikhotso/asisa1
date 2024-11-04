@@ -1,0 +1,5 @@
+package za.co.oldmutual.asisa.common.bean;
+
+public enum NotificationStatusEnum {
+  ACTIVE,MIGRATED,APPROVAL_PENDING,APPROVED,REJECTED,ASTUTE_SENT,ASTUTE_SUCCESS,ASTUTE_FAILURE,REJECT,APPROVE
+}

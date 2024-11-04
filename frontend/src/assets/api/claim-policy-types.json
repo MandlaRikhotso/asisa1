@@ -1,0 +1,42 @@
+[
+    {
+        "policyTypeId": "1",
+        "description": "Risk/Death Benifit"
+    },
+    {
+        "policyTypeId": "12",
+        "description": "Disability Income Replacement"
+    },
+    {
+        "policyTypeId": "16",
+        "description": "Dread Disease"
+    },
+    {
+        "policyTypeId": "19",
+        "description": "Hospital/Medical"
+    },
+    {
+        "policyTypeId": "2147483647",
+        "description": "Other"
+    },
+    {
+        "policyTypeId": "304",
+        "description": "Lump Sum Disability"
+    },
+    {
+        "policyTypeId": "305",
+        "description": "Accident Benefit"
+    },
+    {
+        "policyTypeId": "35",
+        "description": "Funeral Policy"
+    },
+    {
+        "policyTypeId": "402",
+        "description": "Impairment"
+    },
+    {
+        "policyTypeId": "411",
+        "description": "Retrenchment"
+    }
+]

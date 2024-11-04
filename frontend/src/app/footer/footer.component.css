@@ -1,0 +1,12 @@
+.footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: #fff;
+ }
+ .container-fluid{
+    padding-right: 0px !important; 
+    padding-left: 0px !important; 
+ }

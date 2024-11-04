@@ -1,0 +1,65 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+<div class="row" *ngIf="personInfo">
+  <div class="container-fluid">
+    <ul class="nav nav-pills nav-justified">
+      <li>
+        <div class="form-group">
+          <label class="custom-label">ID Type and Number</label>
+          <div class="large-text">
+            <span>{{personInfo?personInfo.identityType['description']:''}}</span>&nbsp;&nbsp;
+            <span>{{personInfo?personInfo.identityNumber:''}}</span>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="form-group">
+          <label for="dob" class="custom-label">Initials</label>
+          <div class="large-text">{{personInfo?(personInfo.givenName1 | slice:0:1):''}} {{personInfo.givenName2?',':''}} {{personInfo?(personInfo.givenName2 | slice:0:1):''}} {{personInfo.givenName3?',':''}}  {{personInfo?(personInfo.givenName3 | slice:0:1):''}}</div>
+        </div>
+      </li>
+      <li>
+        <div class="form-group">
+          <label for="dob" class="custom-label">Surname</label>
+          <div class="large-text">{{personInfo?personInfo.surname:''}}</div>
+        </div>
+      </li>
+      <li>
+        <div class="form-group">
+          <label for="dob" class="custom-label">Given Name 1</label>
+          <div class="large-text">{{personInfo?personInfo.givenName1:''}}</div>
+        </div>
+      </li>
+      <li>
+        <div class="form-group">
+          <label for="dob" class="custom-label">Given Name 2</label>
+          <div class="large-text">{{personInfo?personInfo.givenName2:''}}</div>
+        </div>
+      </li>
+      <li>
+        <div class="form-group">
+          <label for="dob" class="custom-label">Given Name 3</label>
+          <div class="large-text">{{personInfo?personInfo.givenName3:''}}</div>
+        </div>
+      </li>
+      <li>
+        <div class="form-group">
+          <label for="dob" class="custom-label">DOB</label>
+          <div class="large-text">{{personInfo? personInfo.dateOfBirth: ''}}</div>
+      
+        </div>
+      </li>
+      <li>
+        <div class="form-group">
+          <label for="dob" class="custom-label">Gender</label>
+          <div class="large-text">{{personInfo?personInfo.gender['description']:''}}</div>
+        </div>
+      </li>
+      <li *ngIf="personInfo.lifeOffice">
+        <div class="form-group">
+          <label for="dob" class="custom-label">Life Office</label>
+          <div class="large-text">{{personInfo.lifeOffice?personInfo.lifeOffice:''}}</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

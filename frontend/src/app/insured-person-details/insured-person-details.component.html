@@ -1,0 +1,37 @@
+<div id="personDetails">
+  <div class="jumbotron mt-45" *ngIf="InsuredPersonHistory">
+    <div class="container-fluid">
+      <app-alert></app-alert>
+      <div class="jumbotron-section panel-box">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="section-header-main" *ngIf="perfectMatch">
+              <a routerLink="/insured-person-enquiry">
+                <img src="assets/images/back-arrow.png" class="img-fluid" alt="Back Arrow">
+              </a>
+              Perfect Match
+            </div>
+
+            <div class="section-header-main" *ngIf="!perfectMatch">
+              <a routerLink="/insured-person-enquiry">
+                <img src="assets/images/back-arrow.png" class="img-fluid" alt="Back Arrow">
+              </a>
+              Imperfect Match
+            </div>
+          </div>
+          <div class="col-sm-6 text-right">
+            <button type="button" class="btn btn-default btn-cancel" (click)="capPersonDetailScreen()"><span
+                class="glyphicon glyphicon-download-alt"></span>
+              Download Snapshot</button>
+          </div>
+        </div>
+        <br>
+        <app-person-information *ngIf="InsuredPersonHistory" [insuredPersonInfo]="InsuredPersonHistory"></app-person-information>
+      </div>
+    </div>
+  </div>
+  <app-impairments-history *ngIf="InsuredPersonHistory" [personImpairmentHistory]="InsuredPersonHistory"></app-impairments-history>
+  <app-claims-history *ngIf="InsuredPersonHistory" [personCliamHistory]="InsuredPersonHistory"></app-claims-history>
+  <app-notes-history *ngIf="InsuredPersonHistory" [personNotetHistory]="InsuredPersonHistory"></app-notes-history>
+  <app-scratchpad-history *ngIf="InsuredPersonHistory" [personScratchpadHistory]="InsuredPersonHistory"></app-scratchpad-history>
+</div>

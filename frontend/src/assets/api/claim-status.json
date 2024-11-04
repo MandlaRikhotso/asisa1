@@ -1,0 +1,30 @@
+[
+    {
+        "claimStatusId": "10",
+        "description": "REPUDIATED WITH EX GRATIA "
+    },
+    {
+        "claimStatusId": "15",
+        "description": "BASIC PAID "
+    },
+    {
+        "claimStatusId": "16",
+        "description": "FRAUDULENT"
+    },
+    {
+        "claimStatusId": "2147483647",
+        "description": "OTHER "
+    },
+    {
+        "claimStatusId": "4",
+        "description": "UNPAID / PENDING"
+    },
+    {
+        "claimStatusId": "5",
+        "description": "DECLINED / REPUDIATED"
+    },
+    {
+        "claimStatusId": "9",
+        "description": "FULLY PAID"
+    }
+]

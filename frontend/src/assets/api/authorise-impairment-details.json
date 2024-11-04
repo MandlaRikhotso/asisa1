@@ -1,0 +1,31 @@
+{
+    "data": [
+        {
+            "identityNumber": "12345",
+            "identityTypeName": "SA ID",
+            "identityTypeCode": "1",
+            "notifiableImpairmentID": 5,
+            "policyNumber": "12345",
+            "impairmentCode": "AD01",
+            "impairmentCodeDesc": "WEIGHT: OVERWEIGHT",
+            "timeSignal": "2020",
+            "readings": "777",
+            "transType": "UPDATE",
+            "notificationStatusCode": "APPROVAL_PENDING"
+        },
+        {
+            "identityNumber": "12367645",
+            "identityTypeName": "SA ID",
+            "identityTypeCode": "1",
+            "notifiableImpairmentID": 6,
+            "policyNumber": "12345",
+            "impairmentCode": "AD01",
+            "impairmentCodeDesc": "WEIGHT: OVERWEIGHT",
+            "timeSignal": "2020",
+            "readings": "777",
+            "transType": "DELETE",
+            "notificationStatusCode": "APPROVAL_PENDING"
+        }
+    ],
+    "status": "OK"
+}

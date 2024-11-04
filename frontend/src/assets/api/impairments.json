@@ -1,0 +1,202 @@
+[
+  {
+    "icdCodeId": "AD01",
+    "description": "WEIGHT: OVERWEIGHT",
+    "groupId": "OLD",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "AD12",
+    "description": "KYPHOSIS",
+    "groupId": "OLD",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "AD13",
+    "description": "SCOLIOSIS",
+    "groupId": "OLD",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "AD14",
+    "description": "LORDOSIS",
+    "groupId": "OLD",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "AD17",
+    "description": "MARFAN'S SYNDROME",
+    "groupId": "OLD",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A00",
+    "description": "CHOLERA",
+    "groupId": "OLD",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A00.9",
+    "description": "CHOLERA",
+    "groupId": "KK",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A01.0",
+    "description": "TYPHOID",
+    "groupId": "KK",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A02",
+    "description": "OTHER SALMONELLA INFECTIONS",
+    "groupId": "KK",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A03",
+    "description": "SHIGELLOSIS",
+    "groupId": "KK",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A04",
+    "description": "OTHER BACTERIAL INFECTIONS",
+    "groupId": "KK",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A05",
+    "description": "OTHER BACTERIAL FOODBORNE INTOXICATIONS",
+    "groupId": "KK",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A06.0",
+    "description": "AMOEBIC DYSENTERY",
+    "groupId": "OT",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A06.1",
+    "description": "ULCER AMOEBIC",
+    "groupId": "OT",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A06.4",
+    "description": "ABSCESS AMOEBIC",
+    "groupId": "OT",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A06.9",
+    "description": "AMOEBIASIS",
+    "groupId": "KK",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A07.1",
+    "description": "GIARDIASIS",
+    "groupId": "OT",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A08",
+    "description": "VIRAL AND OTHER SPECIFIED INTESTINAL INFECTIONS",
+    "groupId": "KK",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A09",
+    "description": "DIARRHOEA",
+    "groupId": "OT",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  },
+  {
+    "icdCodeId": "A09.0",
+    "description": "ILEOCOLITIS",
+    "groupId": "OT",
+    "readingReq": "",
+    "rule": "",
+    "evalCategory": "",
+    "evaluation": "",
+    "rule1": ""
+  }
+]

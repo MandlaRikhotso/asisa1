@@ -1,0 +1,33 @@
+{
+    "data": [
+        {
+            "transType": "UPDATE",
+            "identityNumber": "12345",
+            "identityTypeName": "SA ID",
+            "identityTypeCode": "1",
+            "notificationID": 5,
+            "policyNumber": "12",
+            "claimReasonCode": "AD01",
+            "claimReasonCodeDesc": "WEIGHT: OVERWEIGHT",
+            "bi1663Number": "7892",
+            "claimStatusCode": "10",
+            "claimStatusDesc": "REPUDIATED WITH EX GRATIA",
+            "policyBenefit": "RISK/DEATH BENEFIT"
+        },
+        {
+            "transType": "DELETE",
+            "identityNumber": "1234545",
+            "identityTypeName": "SA ID",
+            "identityTypeCode": "1",
+            "notificationID": 5,
+            "policyNumber": "12",
+            "claimReasonCode": "AD01",
+            "claimReasonCodeDesc": "WEIGHT: OVERWEIGHT",
+            "bi1663Number": "7892",
+            "claimStatusCode": "10",
+            "claimStatusDesc": "REPUDIATED WITH EX GRATIA",
+            "policyBenefit": "RISK/DEATH BENEFIT"
+        }
+    ],
+    "status": "SUCCESS"
+}

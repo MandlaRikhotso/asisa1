@@ -1,0 +1,92 @@
+<div class="jumbotron-section panel-box">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="section-header">Authorise Claims</div>
+      </div>
+      <div class="col-sm-6 text-right">
+        Click on the row to view the details
+      </div>
+    </div>
+    <div class="row panel-group custom-panel">
+      <div class="panel panel-default custom-panel-auth">
+        <div class="panel-heading panel-header-section">
+          <div class="row">
+            <div class="col-sm-1">Action</div>
+            <div class="col-sm-2">ID Type & Number</div>
+            <div class="col-sm-1">Policy Number</div>
+            <div class="col-sm-1">Claim Policy Type</div>
+            <div class="col-sm-1">Claim Reason</div>
+            <div class="col-sm-1">Claim Status</div>
+            <div class="col-sm-1">DHA1663</div>
+            <div class="col-sm-1">User Name</div>
+            <div class="col-sm-1">Reason for Change </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1"></div>
+          </div>
+        </div>
+        <div class="panel-body panel-body-section" *ngFor="let claim of claims">
+          <div class="row">
+            <div class="col-sm-1 mt-10">
+              <span *ngIf="claim.transType =='DELETE'" class="glyphicon glyphicon-trash"></span>
+              <span *ngIf="claim.transType == 'UPDATE'" class="glyphicon glyphicon-pencil"></span>
+            </div>
+            <div  (click)="getAuthoriseClaim(claim.notificationID)">
+              <a >
+                <div class="col-sm-2 mt-10">
+                  <span>{{claim.identityType.description}}  - {{claim.identityNumber}}</span>
+                </div>
+              </a>
+              <a>
+                <div class="col-sm-1 mt-10">
+                  <span>{{claim.policyNumber}}</span>
+                </div>
+              </a>
+              <a>
+                <div class="col-sm-1 mt-10">
+                  <span>{{claim.policyBenefit.description}}</span>
+                </div>
+              </a>
+              <a>
+                <div class="col-sm-1 mt-10">
+                  <span>{{claim.claimReasons}}</span>
+                </div>
+              </a>
+              <a>
+                <div class="col-sm-1 mt-10">
+                  <span>{{claim.claimStatus.description}}</span>
+                </div>
+              </a>
+              <a>
+                <div class="col-sm-1 mt-10">
+                  <span>{{claim.dha1663Number  ? claim.dha1663Number  : '-'}}</span>
+                </div>
+              </a>
+              <a>
+                <div class="col-sm-1 mt-10">
+                  <span>{{claim.createdBy? claim.createdBy : '-'}}</span>
+                </div>
+              </a>
+              <a>
+                <div class="col-sm-1 mt-10 tooltip-10" [tooltip]="myTooltip" [tooltipDisabled]="false" [tooltipAnimation]="true"
+                tooltipPlacement="top">
+                  <span>{{claim.updateReason? claim.updateReason : '-'}}</span>
+                </div>
+              </a>
+              <tooltip-content #myTooltip >
+                <span>{{claim.updateReason? claim.updateReason : '-'}}</span>
+              </tooltip-content>
+            </div>
+
+            <div class="col-sm-1"  *ngIf="boolAuthorizeClm "><button type="button" class="btn btn-cancel" (click)="onApproveClaimSubmit(claim)">Approve</button></div>
+            <div class="col-sm-1"  *ngIf="boolAuthorizeClm "><button type="button" class="btn btn-reject" data-toggle="modal" data-target="#claimRejectModal" (click)="getReferenceData(claim)">Reject</button></div>
+          </div>
+        </div>
+        <div class="panel-body panel-body-section custom-panel-border" *ngIf="claims.length === 0">
+          <div class="row large-text p-30">
+            <p>Claims are not available for authorise</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-confirm-modal-claim-reject [referenceData]="referClaimData" (impMsgEvent)="impairmentRejectSuccess($event)"></app-confirm-modal-claim-reject>

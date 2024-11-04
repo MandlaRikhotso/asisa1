@@ -1,0 +1,44 @@
+package za.co.oldmutual.asisa.enquiry;
+
+public class IPEnquiryDAOQueries {
+
+  private IPEnquiryDAOQueries() {
+
+  }
+
+  private static final String SELECT_FROM_INSURED_PERSON = "SELECT * FROM LC_INSURED_PERSON ";
+
+  public static final String IS_EXISTS_BY_IDTYPE_AND_NUMBER_QUERY =
+      "SELECT COUNT(*) FROM LC_INSURED_PERSON "
+          + "WHERE IDENTITY_NUMBER_TYPE_CODE=:identityType.code AND IDENTITY_NUMBER= :identityNumber";
+
+  public static final String IS_EXISTS_BY_SURNAME_AND_DATE_OF_BIRTH_QUERY =
+      "SELECT COUNT(*) FROM LC_INSURED_PERSON "
+          + " WHERE UPPER(LC_INSURED_PERSON.SURNAME) = UPPER(:surname) AND DATE_OF_BIRTH= to_date(:dateOfBirth,'dd/MM/yyyy')";
+
+  public static final String FIND_BY_IDTYPE_AND_NUMBER_QUERY =
+      "SELECT * FROM LC_INSURED_PERSON  WHERE IDENTITY_NUMBER_TYPE_CODE=:identityType.code "
+          + " AND IDENTITY_NUMBER= :identityNumber ORDER BY SURNAME, GIVEN_NAME_1,DATE_OF_BIRTH ";
+
+  public static final String FIND_BY_SURNAME_AND_DATE_OF_BIRTH_QUERY = SELECT_FROM_INSURED_PERSON
+      + " WHERE UPPER(LC_INSURED_PERSON.SURNAME) = UPPER(:surname) AND DATE_OF_BIRTH= to_date(:dateOfBirth,'dd/MM/yyyy') ORDER BY SURNAME, GIVEN_NAME_1,DATE_OF_BIRTH ";
+
+  public static final String FIND_IMPERFECT_MATCH_BY_IDTYPE_AND_NUMBER_QUERY =
+      SELECT_FROM_INSURED_PERSON
+          + " WHERE IDENTITY_NUMBER_TYPE_CODE=:identityType.code AND IDENTITY_NUMBER LIKE :identityNumber ORDER BY SURNAME, GIVEN_NAME_1,DATE_OF_BIRTH";
+
+  public static final String FIND_IMPERFECT_MATCH_BY_SURNAME_AND_DATE_OF_BIRTH_QUERY =
+      SELECT_FROM_INSURED_PERSON
+          + " WHERE UPPER(LC_INSURED_PERSON.SURNAME) LIKE UPPER(:surname) AND DATE_OF_BIRTH= to_date(:dateOfBirth,'dd/MM/yyyy') ORDER BY SURNAME, GIVEN_NAME_1,DATE_OF_BIRTH";
+
+  public static final String FIND_PERSON_BY_IDTYPE_AND_NUMBER_QUERY =
+      "SELECT PERSON_ID FROM LC_INSURED_PERSON "
+          + "WHERE IDENTITY_NUMBER_TYPE_CODE=:identityType.code AND IDENTITY_NUMBER= :identityNumber";
+
+  public static final String FIND_PERSON_BY_SURNAME_AND_DATE_OF_BIRTH_QUERY =
+      "SELECT PERSON_ID FROM LC_INSURED_PERSON "
+          + " WHERE UPPER(LC_INSURED_PERSON.SURNAME)= UPPER(:surname) AND DATE_OF_BIRTH= to_date(:dateOfBirth,'yyyy-MM-dd')";
+
+  public static final String FETCH_INSURED_PERSONID_QUERY =
+      "SELECT NOTIFICATION.PERSON_ID FROM LC_NOTIFICATION NOTIFICATION WHERE NOTIFICATION.NOTIFICATION_ID = :notificationID";
+}

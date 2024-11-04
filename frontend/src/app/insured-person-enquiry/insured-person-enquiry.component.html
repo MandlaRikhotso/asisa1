@@ -1,0 +1,223 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+
+
+<div class="jumbotron mt-45">
+  <div class="container-fluid">
+    <app-alert></app-alert>
+    <div class="jumbotron-section panel-box">
+        <!-- <div class="col-sm-12">
+            <span class="custom-text-danger" *ngIf="validNumber">ID Number have to be 13 digits</span>
+          </div> -->
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="section-header-main">Enquiry</div>
+        </div>
+        <div class="col-sm-8">
+            <span class="custom-text-danger" *ngIf="validNumber">ID Number is not valid!</span>
+          </div>
+      </div>
+      <br>
+      <div class="row">
+        <form [formGroup]="searchForm" (ngSubmit)="searchInsuredPersons()">
+          <div class="col-sm-4">
+            <div class="input-group">
+              <div class="input-group-btn">
+                <label for="id type" class="custom-label">ID Type and Number</label>
+                <select formControlName="idType" class="form-control custom-border-input" (change)="changeIdType()">
+                  <option value="{{type.code}}" *ngFor="let type of arrIdTypes">{{type.description}}</option>
+                </select>
+              </div>
+              <label for="id number" class="custom-label">&nbsp;</label>
+              <input type="text" formControlName="idNumber" (keyup)="autocompleteIdNumber()" 
+                class="form-control custom-border-input" placeholder="Enter ID number">
+            </div>
+            <div class="search-result" *ngIf="(this.searchForm.controls.idNumber.value).length >= 10 && arrIdNumbers.length ">
+              <ul>
+                <li *ngFor="let number of arrIdNumbers" (click)="selectedIdNumber(number)">{{number}}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-1 text-center">
+            <div class="form-group">
+              <label for="id" class="custom-label"></label>
+              <h4>OR</h4>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="surname" class="custom-label">Surname</label>
+              <input type="text" formControlName="surname" (keyup)="autocompleteSurname()" 
+                class="form-control custom-border-input" placeholder="Enter Full Surname">
+            </div>
+            <div class="search-result-surname" *ngIf="(this.searchForm.controls.surname.value).length >= 3 && arrSurnames.length">
+              <ul>
+                <li *ngFor="let surname of arrSurnames" (click)="selectedSurname(surname)">{{surname}}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label for="dob" class="custom-label">DOB</label>
+              <div class='input-group date'>
+
+                <input type="text" formControlName="dateOfBirth" placeholder="DD/MM/YYYY"
+                  class="form-control custom-border-input" #dp="bsDatepicker" bsDatepicker
+                  [bsConfig]="datePickerConfig" (focus)="hideautocomplete()">
+
+                <span class="input-group-addon custom-addon">
+                  <span class="glyphicon glyphicon-calendar" (click)="dp.toggle()"
+                    [attr.aria-expanded]="dp.isOpen"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2 custom-button-padding">
+            <button class="btn btn-block btn-dark"
+            >Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid" *ngIf=" !searchResultFound && !searchResultNotFound">
+    <div class="div-section">
+     
+    </div>
+  </div>
+<div class="container-fluid" *ngIf="searchResultFound">
+  <div class="jumbotron-section panel-box">
+    <div class="row">
+      <div class="col-sm-2 mt-10">
+        <p class="custom-label"><b>Possible Matches</b></p>
+      </div>
+      <div class="col-sm-4 mt-10">
+        <p class="custom-label">Click on the row to view the details</p>
+      </div>
+      <div class="col-sm-4 mt-10 text-right">
+        <p class="custom-label">Please add a new person if this is not the one you are looking for</p>
+      </div>
+      <div class="col-sm-2 text-right" *ngIf="boolAddPerson">
+        <button type="button" class="btn btn-cancel btn-sm" (click)="addNewPerson()">Add
+          Person</button>
+      </div>
+    </div>
+    <div class="row panel-group custom-panel">
+      <div class="panel panel-default custom-panel-auth">
+        <div class="panel-heading panel-header-section">
+          <div class="row">
+            <div class="col-sm-2">ID Type and Number</div>
+            <div class="col-sm-2">Initials</div>
+            <div class="col-sm-2" (click)="setOrder('surname')">Surname
+              <span *ngIf="order === 'surname'">
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </span>
+            </div>
+            <div class="col-sm-2" (click)="setOrder('givenName1')">Given Name1
+              <span *ngIf="order === 'givenName1'">
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </span>
+            </div>
+            <div class="col-sm-2" (click)="setOrder('dateOfBirth')">DOB
+              <span *ngIf="order === 'dateOfBirth'">
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </span>
+            </div>
+            <div class="col-sm-2">Gender</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default custom-panel-auth"
+        *ngFor="let insuredPerson of insuredPersons | orderBy: order:reverse:'case-insensitive'">
+        <div class="panel-body panel-body-section custom-panel-border">
+          <a>
+            <div class="row"
+              (click)="displayPersonDetails(insuredPerson.personID,insuredPerson.identityType.code, insuredPerson.identityNumber, insuredPerson.perfect)">
+              <div class="col-sm-2">
+                <div class="form-group">
+                  <label for="email">{{arrIds[insuredPerson.identityType.code]}}</label>
+                  <p>{{insuredPerson.identityNumber}}</p>
+                </div>
+              </div>
+              <div class="col-sm-2">{{insuredPerson.givenName1 | slice:0:1}}  {{insuredPerson.givenName2?',':''}} {{insuredPerson?(insuredPerson.givenName2 | slice:0:1):''}} {{insuredPerson.givenName3?',':''}}  {{insuredPerson?(insuredPerson.givenName3 | slice:0:1):''}}</div>
+              <div class="col-sm-2">{{insuredPerson.surname}}</div>
+              <div class="col-sm-2">{{insuredPerson.givenName1}}</div>
+              <div class="col-sm-2">{{insuredPerson.dateOfBirth}}</div>
+              <div class="col-sm-2">{{insuredPerson.gender.description}}</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="container-fluid" *ngIf="searchResultNotFound" id="personNotFoundSection">
+  <div class="centered">
+    <div class="col-sm-6 custom-enquiry-not-found panel-box">
+      <div class="row m-15">
+        <div class="col-sm-12">
+          <p class="custom-label"><b>Person with below details <span class="text-danger">NOT FOUND!</span></b></p>
+        </div>
+      </div>
+      <div class="row m-15">
+        <div class="col-sm-6 text-left">
+          <p class="custom-label">Enquired Date & Time - <span class="large-text">{{currentDateTime}}</span></p>
+        </div>
+        <div class="col-sm-6">
+          <p class="custom-label">Enquired by - <span class="large-text"> {{strCurrentUserName}}({{strCurrentGivenName}}{{strCurrentSurName}})</span></p>
+        </div>
+      </div>
+      <div class="row p-30">
+        <div *ngIf="strIdFields">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6">
+            <div class="input-group">
+              <div class="input-group-btn text-center">
+                <label for="id" class="custom-label">ID Type and Number</label>
+                <input type="text" class="form-control" placeholder="" value="{{idType}}" disabled>
+              </div>
+              <label for="id" class="custom-label">&nbsp;</label>
+              <input type="text" class="form-control" placeholder="Enter ID number" value="{{idNumber}}" disabled>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!strIdFields">
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="surname" class="custom-label">Surname</label>
+                <input type="text" class="form-control" placeholder="" value="{{surname}}" disabled>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="surname" class="custom-label">DOB</label>
+                <input type="text" class="form-control" placeholder="" value="{{dateOfBirth}}" disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row p-30 custom-background-color">
+        <div class="col-sm-6 text-left">
+          <button type="button" class="btn btn-cancel" (click)="addNewPerson()" *ngIf="boolAddPerson"><span
+              class="glyphicon glyphicon-plus"></span>
+            Add this Person</button>
+        </div>
+        <div class="col-sm-6 text-right">
+          <button type="button" class="btn btn-cancel" (click)="capPersonNotFndScreen()"><span
+              class="glyphicon glyphicon-download-alt"></span>
+            Download Snapshot</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

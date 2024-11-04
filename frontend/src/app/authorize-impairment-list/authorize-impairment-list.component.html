@@ -1,0 +1,91 @@
+<div class="jumbotron-section panel-box">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="section-header">Authorise Impairments</div>
+      </div>
+      <div class="col-sm-6 text-right">
+        <div>
+          Click on the row to view the details
+        </div>
+      </div>
+    </div>
+
+    <div class="row panel-group custom-panel">
+      <div class="panel panel-default custom-panel-auth">
+        <div class="panel-heading panel-header-section">
+          <div class="row">
+            <div class="col-sm-1">Action</div>
+            <div class="col-sm-2">ID Type & Number</div>
+            <div class="col-sm-1">Policy Number</div>
+            <div class="col-sm-2">Impairment</div>
+            <div class="col-sm-1">Time Signals</div>
+            <div class="col-sm-1">Readings</div>
+            <div class="col-sm-1">User Name</div>
+            <div class="col-sm-1">Reason for Change </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1"></div>
+          </div>
+        </div>
+
+        <div class="panel-body panel-body-section" *ngFor="let impairment of impairments">
+          <div class="row">
+            <div class="col-sm-1 mt-10">
+              <span *ngIf="impairment.transType =='DELETE'" class="glyphicon glyphicon-trash"></span>
+              <span *ngIf="impairment.transType == 'UPDATE'" class="glyphicon glyphicon-pencil"></span>
+            </div>
+            <div  (click)="getAuthoriseImpairment(impairment.notificationID)">
+              <a>
+                <div class="col-sm-2 mt-10">
+                  <span>{{impairment.identityType.description}} - {{impairment.identityNumber}}</span>
+                </div>
+              </a>
+              <a>
+                <div class="col-sm-1 mt-10">
+                  <span>{{impairment.policyNumber}}</span>
+                </div>
+              </a>
+              <a>
+                <div class="col-sm-2 mt-10">
+                  <span>{{impairment.impairment.code}}-{{impairment.impairment.description}}</span>
+                </div>
+              </a>
+              <a>
+                <div class="col-sm-1 mt-10">
+                  <span>{{impairment.timeSignal ? impairment.timeSignal : '-'}}</span>
+                </div>
+              </a>
+              <a>
+                <div class="col-sm-1 mt-10">
+                  <span>{{impairment.readings ? impairment.readings : '-'}}</span>
+                </div>
+              </a>
+              <a>
+                <div class="col-sm-1 mt-10">
+                  <span>{{impairment.createdBy? impairment.createdBy : '-'}}</span>
+                </div>
+              </a>
+              <a>
+                <div class="col-sm-1 mt-10 tooltip-10" [tooltip]="myTooltip" [tooltipDisabled]="false" [tooltipAnimation]="true"
+                tooltipPlacement="top">
+                  <span>{{impairment.reasonForEdit? impairment.reasonForEdit : '-'}}</span>
+                </div>
+              </a>
+              <tooltip-content #myTooltip>
+                <span>{{impairment.reasonForEdit? impairment.reasonForEdit : '-'}}</span>
+              </tooltip-content>
+            </div>
+            <div class="col-sm-1" *ngIf="boolAuthorizeImp "><button type="button" class="btn btn-cancel" (click)="onApproveImpairmentSubmit(impairment)">Approve</button></div>
+            <div class="col-sm-1" *ngIf="boolAuthorizeImp "><button type="button" class="btn btn-reject" data-toggle="modal" data-target="#impRejectModal" (click)="getReferenceData(impairment)">Reject</button></div>
+         
+        </div>
+      </div>
+        <div class="panel-body panel-body-section custom-panel-border" *ngIf="impairments.length === 0">
+          <div class="row large-text p-30">
+            <p>Impairments are not available for authorise</p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<app-confirm-modal-impairment-reject [referenceData]="referImpairmentData"  (impMsgEvent)="impairmentRejectSuccess($event)"></app-confirm-modal-impairment-reject>

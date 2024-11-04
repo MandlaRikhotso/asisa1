@@ -1,0 +1,63 @@
+<!-- Notes -->
+<div class="container-fluid">
+  <div class="jumbotron-section panel-box">
+    <span>
+      <span class="section-header">Notes <span class="section-header" *ngIf="!boolStatus">History</span></span>
+      <span class="count-item mr-20" *ngIf="boolStatus">{{notes.length}}</span>
+    </span>
+    <span class="arrow-collapse pull-right" (click)="show = !show" *ngIf="boolStatus">
+      <img *ngIf="show" src="assets/images/arrow-down.png" class="img-fluid" alt="Arrow Down">
+      <img *ngIf="!show" src="assets/images/arrow-right.png" class="img-fluid" alt="Arrow Down">
+    </span>
+
+    <div class="row panel-group custom-panel" *ngIf="show">
+      <div class="panel panel-default custom-panel-auth">
+
+        <div class="panel-heading panel-header-section" *ngIf="notes.length">
+          <div class="row">
+            <div class="col-sm-3">Description</div>
+            <div class="col-sm-3" (click)="setOrder('dateCreated')">Date Created
+              <span *ngIf="order === 'dateCreated'">
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </span>
+            </div>
+            <div class="col-sm-3" (click)="setOrder('notificationSource')">Life Office
+              <span *ngIf="order === 'notificationSource'">
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </span>
+            </div>
+            <div class="col-sm-3">Policy Number</div>
+          </div>
+        </div>
+
+        <div class="panel-body panel-body-section custom-panel-border" *ngFor="let note of notes | orderBy: order:reverse:'case-insensitive':customComparator">
+          <div class="row">
+              <tooltip-content #noteTooltip>
+                  <span>{{note.noteText}}</span>
+                </tooltip-content>
+            <div class="col-sm-3 note-div" [tooltip]="noteTooltip" [tooltipDisabled]="false" [tooltipAnimation]="true"
+            tooltipPlacement="top"><span>{{note.noteText}}</span></div>
+            <div class="col-sm-3" *ngIf="note.dateCreated"><span>{{note.dateCreated | date: 'dd/MM/yyyy'}}</span></div>
+            <tooltip-content #myTooltip>
+              <span>{{note.createdBy}}</span>
+            </tooltip-content>
+            <div class="col-sm-3" [tooltip]="myTooltip" [tooltipDisabled]="false" [tooltipAnimation]="true"
+              tooltipPlacement="top"><span>{{note.notificationSource}}</span></div>
+            <div class="col-sm-3"><span>{{note.policyNumber}}</span></div>
+          </div>
+        </div>
+
+        <div class="panel-body panel-body-section custom-panel-border" *ngIf="!notes.length">
+          <div class="row large-text p-30">
+            <p>Notes are not available for the selected person</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Notes End-->
+<br>

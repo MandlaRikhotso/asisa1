@@ -1,0 +1,37 @@
+[
+    {
+        "claimReasonId": "1",
+        "claimCode": "LOAG1026",
+        "claimReasonDesc": "Abdominal & Operation: Weight Reduction"
+    },
+    {
+        "claimReasonId": "2",
+        "claimCode": "R90",
+        "claimReasonDesc": "Abnormal Brain Scan"
+    },
+    {
+        "claimReasonId": "3",
+        "claimCode": "R91",
+        "claimReasonDesc": "Abnormal Chest Xray"
+    },
+    {
+        "claimReasonId": "4",
+        "claimCode": "R92",
+        "claimReasonDesc": "Abnormal Findings on Diagnostic Imaging of Other Body Structure"
+    },
+    {
+        "claimReasonId": "5",
+        "claimCode": "R93",
+        "claimReasonDesc": "Abnormal Involuntary Movement"
+    },
+    {
+        "claimReasonId": "6",
+        "claimCode": "R94",
+        "claimReasonDesc": "Abnormal Mammogram"
+    },
+    {
+        "claimReasonId": "7",
+        "claimCode": "R95",
+        "claimReasonDesc": "Abnormal Serum Enzyme Levels"
+    }
+]

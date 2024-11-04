@@ -1,0 +1,182 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+<div class="container-fluid">
+  <app-alert></app-alert>
+  <div class="row">
+      <div class="col-sm-12">
+          <span class="custom-text-danger" *ngIf="!isValidNumber">ID Number is not valid!</span>
+      </div>
+    </div>
+  <div class="row">
+      <div class="col-sm-12">
+          <span class="custom-text-danger" *ngIf="isExist && isValidNumber">Person with ID is Exist,Not Allowed to Add Person!</span>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <p><b>Enter OM Customer Number/Customer ID Number and click on find button to fetch the data</b></p>
+    </div>
+  </div>
+  <form [formGroup]="serachInsuredPersonForm" (ngSubmit)="retrivePersonDetails(serachInsuredPersonForm.value)" novalidate>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="input-group">
+          <div class="input-group-btn">
+            <select class="form-control">
+              <option>OM Customer#</option>
+              <option>Action</option>
+            </select>
+          </div>
+          <div class="input-group-btn">
+            <input type="text" class="form-control" formControlName="gsIdNumber"
+              placeholder="Type in Customer Number">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-default btn-block btn-cancel custom-find-button-width"
+          [disabled]="!serachInsuredPersonForm.controls.gsIdNumber.value">Find</button>
+      </div>
+
+      <div class="col-sm-2">
+        <span class="custom-text-danger" *ngIf="strCustomerNotFound">Insured Person Not Found</span>
+      </div>
+
+    </div>
+  </form>
+  <br>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <hr>
+    </div>
+    <div class="col-sm-1 text-center">
+      <h4><span class="or-section">OR</span></h4>
+    </div>
+    <div class="col-sm-9">
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <p><b>Type in the required details:</b></p>
+    </div>
+    <div class="col-sm-4">
+      <span class="text-danger">Mandatory Fields*</span>
+    </div>
+  </div>
+  <form [formGroup]="addPersonForm" novalidate>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="input-group">
+          <div class="input-group-btn">
+            <label for="id" class="custom-label">ID Type and Number<span class="text-danger">*</span></label>
+            <angular2-multiselect [data]="idTypes" [settings]="idtypedropdownsettings" formControlName="idType"
+              (onSelect)="validateData()" (onDeSelect)="validateData()">
+            </angular2-multiselect>
+          </div>
+          <label for="id" class="custom-label">&nbsp;</label>
+          <input type="text" class="form-control" formControlName="idNumber" placeholder="Enter ID Number"
+          (ngModelChange)="validateData()">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="dob" class="custom-label">DOB<span class="text-danger">*</span></label>
+          <div class='input-group date' id='datetimepicker1'>
+            <input type="text" id="dateInput" formControlName="dateOfBirth" placeholder="DD/MM/YYYY"
+              class="form-control custom-border-input" #dp="bsDatepicker" bsDatepicker
+             [bsConfig]="datePickerConfig" (ngModelChange)="validateData()">
+            <span class="input-group-addon custom-addon">
+              <span class="glyphicon glyphicon-calendar" (click)="dp.toggle()" [attr.aria-expanded]="dp.isOpen"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="dob" class="custom-label">Gender<span class="text-danger">*</span></label>
+          <angular2-multiselect [data]="genders" [settings]="genderdropdownsettings" formControlName="gender"
+            (onSelect)="validateData()" (onDeSelect)="validateData()">
+          </angular2-multiselect>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="dob" class="custom-label">Title<span class="text-danger">*</span></label>
+          <angular2-multiselect [data]="pretitles" [settings]="titlesdropdownsettings" formControlName="pretitle"
+            (onSelect)="validateData()" (onDeSelect)="validateData()">
+          </angular2-multiselect>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="dob" class="custom-label">Surname<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" formControlName="surname" placeholder="Type in Full Surname"
+            (keyup)="validateData()">
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="dob" class="custom-label">Given Name 1<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" formControlName="givenName1" placeholder="Type in"
+            (ngModelChange)="validateData()">
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="dob" class="custom-label">Given Name 2</label>
+          <input type="text" class="form-control" formControlName="givenName2" placeholder="Type in"
+            (ngModelChange)="validateData()">
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="dob" class="custom-label">Given Name 3</label>
+          <input type="text" class="form-control" formControlName="givenName3" placeholder="Type in"
+            (ngModelChange)="validateData()">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="dob" class="custom-label">Address Line 1</label>
+          <input type="text" class="form-control" formControlName="addressLine1" placeholder="Type in"
+            (keyup)="validateData()">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="dob" class="custom-label">Address Line 2</label>
+          <input type="text" class="form-control" formControlName="addressLine2" placeholder="Type in"
+            (keyup)="validateData()">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="dob" class="custom-label">Address Line 3</label>
+          <input type="text" class="form-control" formControlName="addressLine3" placeholder="Type in"
+            (keyup)="validateData()">
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="dob" class="custom-label">Postal Code</label>
+          <input type="text" class="form-control" formControlName="postalCode" placeholder="Type in"
+            (keyup)="validateData()">
+        </div>
+      </div>
+    </div>
+  </form>
+  <br>
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="button" (click)="clearData()"
+        class="btn btn-default btn-block btn-cancel custom-find-button-width pull-right">Clear
+        Data</button>
+    </div>
+  </div>
+</div>

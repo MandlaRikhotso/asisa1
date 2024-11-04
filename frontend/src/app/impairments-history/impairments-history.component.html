@@ -1,0 +1,100 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+<div class="container-fluid">
+  <div class="jumbotron-section panel-box">
+    <!-- Impairments -->
+    <span>
+      <span class="section-header">Impairments  <span class="section-subheader" *ngIf="!boolStatus">History</span></span>
+      <span class="count-item mr-20" *ngIf="boolStatus">{{impairments.length}}</span>
+      <a (click)="addImpairment()" *ngIf="boolStatus && boolAddUpdtImp">
+        <span class="add-button">
+          <span class="glyphicon glyphicon-plus"></span> ADD
+        </span>
+      </a>
+    </span>
+    <span class="arrow-collapse pull-right" (click)="show = !show" *ngIf="boolStatus">
+      <img *ngIf="show" src="assets/images/arrow-down.png" class="img-fluid" alt="Arrow Down">
+      <img *ngIf="!show" src="assets/images/arrow-right.png" class="img-fluid" alt="Arrow Down">
+    </span>
+
+    <div class="row panel-group custom-panel" *ngIf="show ">
+      <div class="panel panel-default custom-panel-auth">
+
+        <div class="panel-heading panel-header-section" *ngIf="impairments.length">
+          <div class="row">
+            <div class="col-sm-2" (click)="setOrder('impairment')">Impairment
+              <span *ngIf="order === 'impairment'">
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </span>
+            </div>
+            <div class="col-sm-1">Time Signals</div>
+            <div class="col-sm-1">Readings</div>
+            <div class="col-sm-1">SPIN</div>
+            <div class="col-sm-1">Symbol</div>
+            <div class="col-sm-1" (click)="setOrder('dateCreated')">Date Created
+              <span *ngIf="order === 'dateCreated'">
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </span>
+            </div>
+            <div class="col-sm-1" (click)="setOrder('notificationSource')">Life Office
+              <span *ngIf="order === 'notificationSource'">
+                <span [hidden]="reverse">▼</span>
+                <span [hidden]="!reverse">▲</span>
+              </span>
+            </div>
+            <div class="col-sm-1">Policy Number</div>
+            <div class="col-sm-1">Policy Benefit</div>
+            <div class="col-sm-2" *ngIf="boolStatus">
+              <div class="col-sm-6"></div>
+              <div class="col-sm-6"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-body panel-body-section custom-panel-border"
+          *ngFor="let impairment of impairments | orderBy: order:reverse:'case-insensitive:':customComparator let i=index">
+          <div class="row">
+            <div class="col-sm-2"><span>{{impairment.impairment}}</span></div>
+            <div class="col-sm-1"><span>{{impairment.timeSignal}}</span></div>
+            <div class="col-sm-1"><span>{{(impairment.readings === '/') ? '-':impairment.readings}}</span></div>
+            <div class="col-sm-1"><span>{{impairment.specialInvestigation}}</span></div>
+            <div class="col-sm-1"><span>{{impairment.symbol}}</span></div>
+            <div class="col-sm-1" *ngIf="impairment.dateCreated"><span>{{impairment.dateCreated | date: 'dd/MM/yyyy'}}</span></div>
+            <tooltip-content #myTooltip>
+              <span>{{impairment.createdBy}}</span>
+            </tooltip-content>
+            <div class="col-sm-1" [tooltip]="myTooltip" [tooltipDisabled]="false" [tooltipAnimation]="true"
+              tooltipPlacement="top"><span>{{impairment.notificationSource}}</span></div>
+            <div class="col-sm-1"><span>{{impairment.policyNumber}}</span></div>
+            <div class="col-sm-1"><span>{{impairment.policyBenefit}}</span></div>
+
+            <div class="col-sm-2" *ngIf="boolStatus && boolAddUpdtImp">
+              <div class="col-sm-6" *ngIf="impairment.notificationStatus != 'APPROVAL_PENDING'">
+                <span class="glyphicon glyphicon-pencil"
+                  (click)="addImpairment(impairment.notifiableImpairmentID,impairment.notificationID)"></span>
+              </div>
+              <div class="col-sm-6" *ngIf="impairment.notificationStatus != 'APPROVAL_PENDING'">
+                <span class="glyphicon glyphicon-trash"
+                  (click)="deleteImpairment(impairment.notifiableImpairmentID,impairment.notificationID)"
+                  data-toggle="modal" data-target="#impModal"></span>
+              </div>
+              <div class="col-sm-12" *ngIf="impairment.notificationStatus === 'APPROVAL_PENDING'">
+                {{impairment.notificationStatus}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body panel-body-section custom-panel-border" *ngIf="!impairments.length">
+          <div class="row large-text p-30">
+            <p>Impairments are not available for the selected person</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Impairments End-->
+<br>
+
+<app-confirm-modal-impairment (impMsgEvent)="impairmentDeleteSuccess($event)"></app-confirm-modal-impairment>

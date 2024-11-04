@@ -1,0 +1,191 @@
+<div class="jumbotron mt-45">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="section-header-main">
+          <a routerLink="/authorise">
+            <img src="assets/images/back-arrow.png" class="img-fluid" alt="Back Arrow">
+          </a>
+          Authorise Claims
+        </div>
+      </div>
+      <div class="col-sm-6 text-right">
+        <div>
+          <button type="button" class="btn btn-default btn-cancel" (click)="capAuthoriseClaim()"><span
+              class="glyphicon glyphicon-download-alt"></span> Download Snapshot</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid jumbotron-section" id="authoriseClaim">
+  <app-person-information></app-person-information>
+  <br>
+  <app-alert></app-alert>
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="section-header">
+        Claims
+      </div>
+    </div>
+    <span *ngIf="(claims)?claims.transType == 'DELETE':''" class="im-delete-box"></span>
+    <span *ngIf="(claims)?claims.transType == 'DELETE':''">Deleted</span>
+    <span *ngIf="(claims)?claims.transType == 'UPDATE':''" class="cm-updated-box"></span>
+    <span *ngIf="(claims)?claims.transType == 'UPDATE':''" class="cm-updated-text">Updated</span>
+    <span *ngIf="(claims)?claims.transType == 'UPDATE':''" class="cm-original-box"></span>
+    <span *ngIf="(claims)?claims.transType == 'UPDATE':''">Original</span>
+  </div>
+
+  <div class="enquiry-section panel-box">
+    <div class="row p-10">
+      <div class="col-sm-2">
+        <label class="custom-label">Captured On</label> -<span
+          class="large-text">{{claims.new?(claims.new.createdDate | date: 'dd/MM/yyyy'):''}}</span>
+      </div>
+      <div class="col-sm-2">
+        <label class="custom-label">Captured by</label> - <span
+          class="large-text">{{claims.new?claims.new.createdBy :''}}</span>
+      </div>
+      <div class="col-sm-4 notes_div" *ngIf="strNote[0]" [tooltip]="myTooltipNote" [tooltipDisabled]="false"
+        [tooltipAnimation]="true" tooltipPlacement="top">
+        <label class="large-text">Notes </label> - <span class="">{{strNote[0]}}</span>
+      </div>
+      <tooltip-content #myTooltipNote>
+        <div class="tooltip-content-div">{{strNote[0]}}</div>
+      </tooltip-content>
+      <div class="col-sm-4 notes_div" *ngIf="strNote[1]" [tooltip]="myTooltipScra" [tooltipDisabled]="false"
+        [tooltipAnimation]="true" tooltipPlacement="top">
+        <label class="large-text">Scratchpad</label> - <span class="">{{strNote[1]}}</span>
+      </div>
+      <tooltip-content #myTooltipScra>
+        <div class="tooltip-content-div">{{strNote[1]}}</div>
+      </tooltip-content>
+    </div>
+    <div class="row p-10">
+      <div class="col-sm-6">
+        <span class="large-text">Reason Mentioned</span> - <span>{{claims.new?claims.new.updateReason:''}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="enquiry-section panel-box">
+    <div class="panel-group custom-panel">
+      <div class="panel panel-default custom-panel-auth">
+
+        <div class="panel-heading panel-header-section">
+          <div class="row">
+            <div class="col-sm-2">Claim Type</div>
+            <div class="col-sm-1">Date Created</div>
+            <div class="col-sm-1">Date of Event</div>
+            <div class="col-sm-2">Cause of Event</div>
+            <div class="col-sm-1">Place of Death</div>
+            <div class="col-sm-2">Death Certificate#</div>
+            <div class="col-sm-1">DHA1663</div>
+            <div class="col-sm-2">Policy Number</div>
+          </div>
+        </div>
+        <div class="panel-body panel-body-section ">
+          <div class="row " *ngIf="claims.new"
+            [ngClass]="claims.transType == 'UPDATE' ? 'cm-selected-row' : 'im-selected-row'">
+            <div class="col-sm-2"><span
+                [ngClass]="claims.new.policyBenefit.description != claims.old.policyBenefit.description ? 'cm-updated-text' : ''">{{claims.new?claims.new.policyBenefit.description:'-'}}</span>
+            </div>
+            <div class="col-sm-1"><span>{{claims.new? (claims.new.createdDate | date: 'dd/MM/yyyy'):'-'}}</span></div>
+            <div class="col-sm-1"><span
+                [ngClass]="claims.new.eventDate != claims.old.eventDate ? 'cm-updated-text' : ''">{{claims.new? (claims.new.eventDate|  date: 'dd/MM/yyyy'):''}}</span>
+            </div>
+            <div class="col-sm-2"><span
+                [ngClass]="claims.new.causeOfEvent.description != claims.old.causeOfEvent.description ? 'cm-updated-text' : ''">{{claims.new?claims.new.causeOfEvent.description:'-'}}</span>
+            </div>
+            <div class="col-sm-1"
+              [ngClass]="claims.new.placeOfDeath != claims.old.placeOfDeath ? 'cm-updated-text' : ''">
+              <span>{{claims.new.placeOfDeath?claims.new.placeOfDeath:'-'}}</span></div>
+            <div class="col-sm-2"
+              [ngClass]="claims.new.deathCertificateNumber != claims.old.deathCertificateNumber ? 'cm-updated-text' : ''">
+              <span>{{claims.new.deathCertificateNumber?claims.new.deathCertificateNumber:'-'}}</span></div>
+            <div class="col-sm-1"><span
+                [ngClass]="claims.new.dha1663Number  != claims.old.dha1663Number  ? 'cm-updated-text' : ''">{{claims.new.dha1663Number ?claims.new.dha1663Number :'-'}}</span>
+            </div>
+            <div class="col-sm-2"><span>{{claims.new?claims.new.policyNumber:'-'}}</span></div>
+          </div>
+          <div class="row" *ngIf="claims.new"
+            [ngClass]="claims.transType == 'UPDATE' ? 'cm-selected-row' : 'im-selected-row'">
+            <div class="col-sm-2 row-header-div">Claim Category</div>
+            <div class="col-sm-5 row-header-div">Claim Reason</div>
+            <div class="col-sm-2 row-header-div">Claim Status</div>
+            <div class="col-sm-1 row-header-div"></div>
+            <div class="col-sm-2 row-header-div">Life Office</div>
+          </div>
+          <div class="row" *ngIf="claims.new"
+            [ngClass]="claims.transType == 'UPDATE' ? 'cm-selected-row' : 'im-selected-row'">
+            <div class="col-sm-2 row-content-div">
+              <span  [ngClass]="claims.new.claimCategory.code != claims.old.claimCategory.code ? 'cm-updated-text' : ''">
+                {{claims.new?claims.new.claimCategory.code:'-'}} {{"-"}}
+                {{claims.new?claims.new.claimCategory.description:'-'}}
+              </span>
+            </div>
+            <div class="col-sm-5 row-content-div">
+              <span  [ngClass]="claims.new.claimReason[0].code != claims.old.claimReason[0].code ? 'cm-updated-text' : ''">
+                {{claims.new?claims.new.claimReason[0].code:''}} {{'-'}}
+                {{claims.new?claims.new.claimReason[0].description:''}}
+              </span>
+            </div>
+            <div class="col-sm-2 row-content-div">
+              <span  [ngClass]="claims.new.claimStatus.description!= claims.old.claimStatus.description ? 'cm-updated-text' : ''">
+                {{(claims.new.claimStatus.description !="")?claims.new.claimStatus.description:'-'}}
+            </span>
+          </div>
+            <div class="col-sm-1 row-content-div"></div>
+            <div class="col-sm-2 row-content-div">
+              <span  [ngClass]="claims.new.lifeOffice != claims.old.lifeOffice ? 'cm-updated-text' : ''">
+                {{claims.new?claims.new.lifeOffice:'-'}}</span>
+              </div>
+          </div>
+          <div class="row cm-original-row" *ngIf="(claims)?claims.transType == 'UPDATE':''">
+            <div class="col-sm-2"><span>{{claims.old.policyBenefit.description}}</span></div>
+            <div class="col-sm-1"><span>{{claims.old ?(claims.old.createdDate|  date: 'dd/MM/yyyy'):'-'}}</span></div>
+            <div class="col-sm-1"><span>{{claims.old ?(claims.old.eventDate|  date: 'dd/MM/yyyy'):'-'}}</span></div>
+            <div class="col-sm-2"><span>{{claims.old.causeOfEvent.description}}</span></div>
+            <div class="col-sm-1"><span>{{claims.old.placeOfDeath ? claims.old.placeOfDeath :'-'}}</span></div>
+            <div class="col-sm-2">
+              <span>{{claims.old.deathCertificateNumber ?claims.old.deathCertificateNumber:'-'}}</span></div>
+            <div class="col-sm-1"><span>{{claims.old.dha1663Number  ? claims.old.dha1663Number :'-'}}</span></div>
+            <div class="col-sm-2"><span>{{claims.old.policyNumber}}</span></div>
+          </div>
+          <div class="row cm-original-row" *ngIf="(claims)?claims.transType == 'UPDATE':''">
+            <div class="col-sm-2 row-header-div">Claim Category</div>
+            <div class="col-sm-5 row-header-div">Claim Reason</div>
+            <div class="col-sm-2 row-header-div">Claim Status</div>
+            <div class="col-sm-1 row-header-div"></div>
+            <div class="col-sm-2 row-header-div">Life Office</div>
+          </div>
+          <div class="row cm-original-row" *ngIf="(claims)?claims.transType == 'UPDATE':''">
+            <div class="col-sm-2 row-content-div">
+              {{claims.old?claims.old.claimCategory.code:'-'}} {{"-"}}
+              {{claims.old?claims.old.claimCategory.description:'-'}}
+            </div>
+            <div class="col-sm-5 row-content-div">
+              {{claims.old?claims.old.claimReason[0].code:''}} {{'-'}}
+              {{claims.old?claims.old.claimReason[0].description:''}}
+            </div>
+            <div class="col-sm-2 row-content-div">
+              {{(claims.old.claimStatus.description !="")?claims.old.claimStatus.description:'-'}}</div>
+            <div class="col-sm-1 row-content-div"></div>
+            <div class="col-sm-2 row-content-div">{{claims.old?claims.old.lifeOffice:'-'}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-sm-2" *ngIf="boolAuthorizeClm "><button type="button" class="btn btn-default btn-block btn-cancel"
+        (click)="onApproveClaimSubmit(claims)">Approve</button></div>
+    <div class="col-sm-2" *ngIf="boolAuthorizeClm "><button type="button" class="btn btn-default btn-block btn-reject"
+        data-toggle="modal" data-target="#claimRejectModal" (click)="getReferenceData(claims)">Reject</button></div>
+  </div>
+</div>
+
+<app-confirm-modal-claim-reject [referenceData]="referClaimData"></app-confirm-modal-claim-reject>

@@ -1,0 +1,46 @@
+<br>
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+<div class="container-fluid">
+  <form [formGroup]="addNoteForm">
+    <div formArrayName="notes">
+      <div *ngFor="let note of addNoteForm['controls']['notes']['controls']; let i=index">
+        <div [formGroupName]="i">
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="dob" class="custom-label">Policy Number<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" formControlName="policyNumber" (ngModelChange)="validateData()" placeholder="Policy Number"
+                  [readonly]="true">
+              </div>
+            </div>
+            <div class="col-sm-4" *ngIf="pageAction">
+                <div class="form-group">
+                  <label for="dob" class="custom-label"  *ngIf="pageAction.action === 'ADD IMPAIRMENT' ||pageAction.action === 'EDIT IMPAIRMENT' ">Policy Benefit<span class="text-danger">*</span></label>
+                  <label for="dob" class="custom-label"  *ngIf="pageAction.action === 'ADD CLAIM' || pageAction.action === 'EDIT CLAIM' ">Claim Type<span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" formControlName="description" placeholder="Policy Number"
+                    [readonly]="true">
+                </div>
+              </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="dob" class="custom-label">Note </label>
+                <textarea class="form-control custom-min-height" maxlength="800" formControlName="note" placeholder="Type in your comments"  (ngModelChange)="validateData()"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+  </form>
+  <br>
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="button" (click)="clearData()" class="btn btn-default btn-block btn-cancel custom-find-button-width pull-right">Clear
+        Data</button>
+    </div>
+  </div>
+</div>
+<br><br>
+<app-notes-history *ngIf="selectedPersonId" [insuredPersonId]="selectedPersonId"></app-notes-history>

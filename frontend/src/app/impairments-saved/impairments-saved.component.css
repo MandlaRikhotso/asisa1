@@ -1,0 +1,18 @@
+.custom-width{
+    width:400px;
+}
+.btn-white{
+    color:green;
+    height: 45px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-color:#50b848;
+    background-color: #ffffff;
+    border-radius: 0px;
+}
+
+.paddingTB20{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

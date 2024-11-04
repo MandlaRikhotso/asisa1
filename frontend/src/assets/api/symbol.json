@@ -1,0 +1,22 @@
+[
+  {
+    "symbolId": "Non-Medical",
+    "code": "N"
+  },
+  {
+    "symbolId": "Questionable",
+    "code": "Q"
+  },
+  {
+    "symbolId": "Under Treatment",
+    "code": "T"
+  },
+  {
+    "symbolId": "Found on Examination",
+    "code": "X"
+  },
+  {
+    "symbolId": "Assumed Significance",
+    "code": "Z"
+  }
+]
